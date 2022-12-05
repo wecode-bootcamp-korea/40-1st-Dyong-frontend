@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Nav = () => {
   return <h1>Nav</h1>;
