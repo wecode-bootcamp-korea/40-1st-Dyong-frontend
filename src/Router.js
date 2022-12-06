@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
-import Join from './pages/Join/Signup';
+import Join from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Product from './pages/Product/Product';
