@@ -75,6 +75,11 @@ function Signup() {
             alt="로고"
           />
         </div>
+        <div className="fonta">뷰티포인트 회원가입</div>
+        <div className="fontb">
+          뷰티포인트 통합 아이디로 아모레퍼시픽 모든 브랜드의 온/오프 매장
+          서비스를 이용하실 수 있습니다.(만 14세 이상 부터 가입 가능합니다.)
+        </div>
         <div className="idBox">
           <HintInput name="id" value={formData.id} onChange={onChangeInput} />
         </div>
@@ -107,7 +112,11 @@ function Signup() {
             onChange={onChangeInput}
           />
         </div>
-        {!isAllValid && <h1>양식을 모두 확인해주세요.</h1>}
+        <div className="check">
+          {!isAllValid && (
+            <h1>회원가입이 불가능합니다. 양식을 다시 확인하세요.</h1>
+          )}
+        </div>
         <button type="button" className="button" onClick={goToLogin}>
           회원가입
         </button>

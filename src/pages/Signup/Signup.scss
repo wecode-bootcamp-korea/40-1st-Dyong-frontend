@@ -5,13 +5,12 @@
 
 .signUpForm {
   background-color: transparent;
-  width: 350px;
+  width: 375px;
   height: 550px;
   border-radius: 5px;
   margin: 0 auto;
   margin-top: 5rem;
   margin-bottom: 0.6rem;
-  border: 2px solid green;
 }
 
 .logo_box {
@@ -22,6 +21,17 @@
   margin-bottom: 2rem;
 }
 
+.fonta {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.fontb {
+  font-size: 15px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .idBox, .nameBox, .passBox, .passcBox, .emailBox, .phoneBox {
   text-align: center;
   margin-bottom: 0.5rem;
@@ -29,19 +39,27 @@
 
 input {
   display: block;
-  width: 250px;
+  width: 350px;
   height: 40px;
   margin: 0 auto;
-  background-color: white;
+  background-color: rgb(227, 235, 239);
   border: 1px solid gray;
   border-radius: 3px;
   text-indent: 5px;
   outline-color: gray;
 }
 
+.check {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .button {
   display: block;
-  width: 250px;
+  width: 350px;
   height: 30px;
   margin: 0 auto;
   border: none;
