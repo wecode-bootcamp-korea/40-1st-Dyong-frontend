@@ -1,129 +1,69 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import HintInput from '../Input/HintInput';
 import './Signup.scss';
+
+export const RULES = {
+  id: {
+    pattern: value => value.length > 5,
+    message: '아이디 양식을 확인하세요. 아이디는 최소 5자 이상이여야 합니다.',
+  },
+  name: {
+    pattern: value => value.length > 2,
+    message: '이름 양식을 확인하세요. 법정 이름은 최소 2자 이상이여야 합니다.',
+  },
+  password: {
+    pattern: value => value.includes('!', '@', '#', '$', '%', '^', '&'),
+    message:
+      '비밀번호 양식을 확인하세요. 비밀번호는 !, @, #, $, %, ^, &중 하나를 반드시 포함해야 합니다.',
+  },
+  email: {
+    pattern: value => value.includes('@') && value.includes('.'),
+    message: '이메일 양식을 확인하세요.',
+  },
+  phone: {
+    pattern: value => value.includes('-'),
+    message: '핸드폰 양식(-을 포함한 정확한 번호)를 입력해주세요.',
+  },
+};
+
+const INIT_STATE = {
+  id: '',
+  name: '',
+  password: '',
+  email: '',
+  phone: '',
+};
 
 function Signup() {
   const navigate = useNavigate();
-  const [id, setId] = useState('');
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-
-  const [idMessage, setIdMessage] = useState();
-  const [nameMessage, setNameMessage] = useState('');
-  const [passwordMessage, setPasswordMessage] = useState('');
-  const [passwordConfirmMessage, setPasswordConfirmMessage] = useState('');
-  const [emailMessage, setEmailMessage] = useState('');
-  const [phoneMessage, setPhoneMessage] = useState('');
-
-  const [currentId, setIsId] = useState(false);
-  const [currentName, setIsName] = useState(false);
-  const [currentPassword, setIsPassword] = useState(false);
-  const [currentPasswordConfirm, setIsPasswordConfirm] = useState(false);
-  const [currentEmail, setIsEmail] = useState(false);
-  const [currentPhone, setIsPhone] = useState(false);
 
   const goToLogin = () => {
     if (
-      setIsId(true) &&
-      setIsName(true) &&
-      setIsPassword(true) &&
-      setIsPasswordConfirm(true) &&
-      setIsEmail(true)
+      INIT_STATE.id.length > 5 &&
+      INIT_STATE.name.length > 2 &&
+      INIT_STATE.password.value.includes('!', '@', '#', '$', '%', '^', '&') &&
+      INIT_STATE.email.value.includes('@') &&
+      INIT_STATE.email.value.includes('.') &&
+      INIT_STATE.phone.value.includes('-')
     ) {
       navigate('/login');
     } else {
-      alert(
-        '모든 조건이 충족되지 않아 회원가입이 불가능합니다. 다시 한 번 확인해주세요'
-      );
+      alert('양식을 다시 확인해주세요!');
     }
   };
 
-  const onChangeId = e => {
-    const currentId = e.target.value;
-    setId(currentId);
-    const idRegExp = /^[a-zA-z0-9]{6,12}$/;
+  const [active, setActive] = useState(false);
+  const [formData, setFormData] = useState(INIT_STATE);
 
-    if (!idRegExp.test(currentId)) {
-      setIdMessage(
-        '아이디는 6-12자리 영문 대소문자 또는 숫자만 입력해 주세요!'
-      );
-      setIsId(false);
-    } else {
-      setIdMessage('사용가능한 아이디 입니다.');
-      setIsId(true);
-    }
+  const onChangeInput = ({ target }) => {
+    setFormData({ ...formData, [target.name]: target.value });
   };
 
-  const onChangeName = e => {
-    const currentName = e.target.value;
-    setName(currentName);
-
-    if (currentName.length < 2) {
-      setNameMessage('이름은 최소 두글자 이상이여 합니다!');
-      setIsName(false);
-    } else {
-      setNameMessage(name + ' 님 환영합니다.');
-      setIsName(true);
-    }
-  };
-
-  const onChangePassword = e => {
-    const currentPassword = e.target.value;
-    setPassword(currentPassword);
-    const passwordRegExp =
-      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-    if (!passwordRegExp.test(currentPassword)) {
-      setPasswordMessage(
-        '숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!'
-      );
-      setIsPassword(false);
-    } else {
-      setPasswordMessage('안전한 비밀번호 입니다.');
-      setIsPassword(true);
-    }
-  };
-  const onChangePasswordConfirm = e => {
-    const currentPasswordConfirm = e.target.value;
-    setPasswordConfirm(currentPasswordConfirm);
-    if (password !== currentPasswordConfirm) {
-      setPasswordConfirmMessage('비밀번호를 다시 한 번 확인해 주세요');
-      setIsPasswordConfirm(false);
-    } else {
-      setPasswordConfirmMessage('일치하는 비밀번호입니다.');
-      setIsPasswordConfirm(true);
-    }
-  };
-  const onChangeEmail = e => {
-    const currentEmail = e.target.value;
-    setEmail(currentEmail);
-    const emailRegExp =
-      /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
-
-    if (!emailRegExp.test(currentEmail)) {
-      setEmailMessage('이메일의 형식이 올바르지 않습니다!');
-      setIsEmail(false);
-    } else {
-      setEmailMessage('사용 가능한 이메일 입니다.');
-      setIsEmail(true);
-    }
-  };
-  const onChangePhone = e => {
-    const currentPhone = e.target.value;
-    setPhone(currentPhone);
-    const phoneRegExp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
-
-    if (!phoneRegExp.test(currentPhone)) {
-      setPhoneMessage('핸드폰번호의 형식이 올바르지 않습니다!');
-      setIsPhone(false);
-    } else {
-      setPhoneMessage('사용 가능한 전화번호 입니다.');
-      setIsPhone(true);
-    }
-  };
+  const isAllValid = Object.entries(formData).every(([key, value]) =>
+    RULES[key].pattern(value)
+  );
 
   return (
     <section className="signup">
@@ -135,73 +75,39 @@ function Signup() {
             alt="로고"
           />
         </div>
-        <div className="idForm">
-          <input
-            type="text"
-            id="id"
-            name="id"
-            placeholder="사용할 아이디를 입력해주세요."
-            value={id}
-            onChange={onChangeId}
-          />
-          <p className="message">{idMessage}</p>
+        <div className="idBox">
+          <HintInput name="id" value={formData.id} onChange={onChangeInput} />
         </div>
-
-        <div className="nameForm">
-          <input
-            type="text"
-            id="name"
+        <div className="nameBox">
+          <HintInput
             name="name"
-            placeholder="법정 이름을 입력해주세요."
-            value={name}
-            onChange={onChangeName}
+            value={formData.name}
+            onChange={onChangeInput}
           />
-          <p className="message">{nameMessage}</p>
         </div>
-        <div className="passForm">
-          <input
+        <div className="passBox">
+          <HintInput
+            name="password"
             type="password"
-            id="pw"
-            name="pw"
-            placeholder="비밀번호를 입력해주세요."
-            value={password}
-            onChange={onChangePassword}
+            value={formData.password}
+            onChange={onChangeInput}
           />
-          <p className="message">{passwordMessage}</p>
         </div>
-        <div className="passConForm">
-          <input
-            type="password"
-            id="pwC"
-            name="pwC"
-            placeholder="비밀번호를 확인해주세요."
-            value={passwordConfirm}
-            onChange={onChangePasswordConfirm}
-          />
-          <p className="message">{passwordConfirmMessage}</p>
-        </div>
-        <div className="emailForm">
-          <input
-            type="text"
-            id="email"
+        <div className="emailBox">
+          <HintInput
             name="email"
-            placeholder="이메일을 입력해주세요."
-            value={email}
-            onChange={onChangeEmail}
+            value={formData.email}
+            onChange={onChangeInput}
           />
-          <p className="message">{emailMessage}</p>
         </div>
-        <div className="phoneForm">
-          <input
-            type="text"
-            id="phone"
+        <div className="phoneBox">
+          <HintInput
             name="phone"
-            placeholder="전화번호를 입력해주세요."
-            value={phone}
-            onChange={onChangePhone}
+            value={formData.phone}
+            onChange={onChangeInput}
           />
-          <p className="message">{phoneMessage}</p>
         </div>
+        {!isAllValid && <h1>양식을 모두 확인해주세요.</h1>}
         <button type="button" className="button" onClick={goToLogin}>
           회원가입
         </button>

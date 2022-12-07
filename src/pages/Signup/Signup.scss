@@ -1,66 +1,59 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .signup {
-    width: 100%;
-    margin: 0 auto;
-  }
+.Signup {
+  font-family: sans-serif;
+  text-align: center;
+}
 
-  .signUpForm {
-    background-color: transparent;
-    width: 350px;
-    height: 550px;
-    border-radius: 5px;
-    margin: 0 auto;
-    margin-top: 5rem;
-    margin-bottom: 0.6rem;
-    opacity: 1;
-  }
-  
-  .logo_box {
-    width: auto;
-    height: auto;
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-  }
+.signUpForm {
+  background-color: transparent;
+  width: 350px;
+  height: 550px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 5rem;
+  margin-bottom: 0.6rem;
+  border: 2px solid green;
+}
 
-  .idForm, .nameForm, .passForm, .passConForm, .emailForm, .phoneForm {
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
+.logo_box {
+  width: auto;
+  height: auto;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
 
-  input {
-    display: block;
-    width: 250px;
-    height: 40px;
-    margin: 0 auto;
-    background-color: white;
-    border: 1px solid gray;
-    border-radius: 3px;
-    text-indent: 5px;
-    outline-color: gray;
-  }
-  
-  .button {
-    display: block;
-    width: 250px;
-    height: 30px;
-    margin: 0 auto;
-    border: none;
-    border-radius: 3px;
-    background-color: skyblue;
-    font-style: bold;
-    font-size: 20px;
-  }
-  
-  .faq {
-    margin-top: 2rem;
-    font-size: 15px;
-    text-align: center;
-    color: rgb(39, 39, 255);
-  }
-  
+.idBox, .nameBox, .passBox, .passcBox, .emailBox, .phoneBox {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  display: block;
+  width: 250px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 3px;
+  text-indent: 5px;
+  outline-color: gray;
+}
+
+.button {
+  display: block;
+  width: 250px;
+  height: 30px;
+  margin: 0 auto;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(140, 255, 140);
+  font-style: bold;
+  font-size: 20px;
+}
+
+.faq {
+  margin-top: 2rem;
+  font-size: 15px;
+  text-align: center;
+  color: rgb(39, 39, 255);
+}

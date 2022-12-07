@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav/Nav';
+import Join from './pages/Join/Join';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
@@ -15,6 +16,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/join" element={<Join />} />
         <Route path="/login" element={<Login />} />
         <Route path="/product" element={<Product />} />
         <Route path="/detail" element={<Detail />} />
