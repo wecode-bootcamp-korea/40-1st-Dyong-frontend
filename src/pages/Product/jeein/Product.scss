@@ -30,6 +30,7 @@ a {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid #ddd;
       .productSortBar {
         display: flex;
         justify-content: flex-end;
@@ -74,6 +75,45 @@ a {
     justify-content: center;
     li {
       margin: 0 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .jejuSulloc {
+    .productBanner {
+      .productBannerTitle {
+        left: 80%;
+        span {
+          font-size: 30px;
+        }
+      }
+    }
+    .productMain {
+      max-width: 1280px;
+      margin: 30px auto;
+      .productTea {
+        display: block;
+
+        p {
+          display: none;
+        }
+        .productSortBar {
+          justify-content: center;
+        }
+      }
+      .productAll {
+        display: grid;
+        justify-content: center;
+        p {
+          order: 2;
+          margin-top: 15px;
+        }
+        .productCategorySortBar {
+          order: 1;
+          margin-top: 15px;
+        }
+      }
     }
   }
 }
