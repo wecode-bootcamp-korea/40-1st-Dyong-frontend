@@ -37,16 +37,18 @@ const INIT_STATE = {
 };
 
 function Signup() {
+  const [formData, setFormData] = useState(INIT_STATE);
+
   const navigate = useNavigate();
 
   const goToLogin = () => {
     if (
-      INIT_STATE.id.length > 5 &&
-      INIT_STATE.name.length > 2 &&
-      INIT_STATE.password.value.includes('!', '@', '#', '$', '%', '^', '&') &&
-      INIT_STATE.email.value.includes('@') &&
-      INIT_STATE.email.value.includes('.') &&
-      INIT_STATE.phone.value.includes('-')
+      formData.id.length > 5 &&
+      formData.name.length > 2 &&
+      formData.password.includes('!', '@', '#', '$', '%', '^', '&') &&
+      formData.email.includes('@') &&
+      formData.email.includes('.') &&
+      formData.phone.includes('-')
     ) {
       navigate('/login');
     } else {
@@ -54,8 +56,8 @@ function Signup() {
     }
   };
 
-  const [active, setActive] = useState(false);
-  const [formData, setFormData] = useState(INIT_STATE);
+  /* eslint-disable-next-line no-console */
+  console.log(formData.id);
 
   const onChangeInput = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
