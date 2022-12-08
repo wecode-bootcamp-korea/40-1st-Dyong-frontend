@@ -56,9 +56,6 @@ function Signup() {
     }
   };
 
-  /* eslint-disable-next-line no-console */
-  console.log(formData.id);
-
   const onChangeInput = ({ target }) => {
     setFormData({ ...formData, [target.name]: target.value });
   };
