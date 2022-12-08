@@ -1,5 +1,88 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Product.scss';
+
+function Product() {
+  return (
+    <div className="jejuSulloc">
+      <div className="productBanner">
+        <div className="productBannerImage">
+          <img src="./images/osulloc_banner.jpg" alt="전제품 배너" />
+        </div>
+        <div className="productBannerTitle">
+          <span className="bannerTitle">티제품</span>
+        </div>
+      </div>
+      <div className="productMain">
+        <div className="productTea">
+          <p>티 제품</p>
+          <ul className="productSortBar">
+            <li>
+              <Link to=" ">리뷰많은순</Link>
+            </li>
+            <li>
+              <Link to=" ">판매순</Link>
+            </li>
+            <li>
+              <Link to=" ">신상품순</Link>
+            </li>
+            <li>
+              <Link to=" ">높은 가격순</Link>
+            </li>
+            <li>
+              <Link to=" ">낮은 가격순</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="productAll">
+          <p>총 {PRODUCT_INFO_LIST.length}개의 상품이 있습니다.</p>
+          <ul className="productCategorySortBar">
+            <li>
+              <Link to=" ">전체</Link>
+            </li>
+            <li>
+              <Link to=" ">잎차</Link>
+            </li>
+            <li>
+              <Link to=" ">피라미드</Link>
+            </li>
+            <li>
+              <Link to=" ">티백</Link>
+            </li>
+            <li>
+              <Link to=" ">파우더</Link>
+            </li>
+          </ul>
+        </div>
+        <div className="productSection">
+          {PRODUCT_INFO_LIST.map(info => (
+            <div key={info.id} className="sullocArchive">
+              <div className="sullocSectionImage">
+                <img src={info.image} alt={info.alt} />
+              </div>
+              <div className="sullocSectionInfo">
+                <div className="sullocSectionInfoTitle">{info.productName}</div>
+                <div className="sullocSectionInfoPrice">
+                  {info.productPrice}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <ul className="priductPagenation">
+        <li>
+          <Link to=" ">1</Link>
+        </li>
+        <li>
+          <Link to=" ">2</Link>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+export default Product;
 
 const PRODUCT_INFO_LIST = [
   {
@@ -45,84 +128,3 @@ const PRODUCT_INFO_LIST = [
     productPrice: '70,1300원',
   },
 ];
-function Product() {
-  return (
-    <div className="jejuSulloc">
-      <div className="productBanner">
-        <div className="productBannerImage">
-          <img src="./images/osulloc_banner.jpg" alt="전제품 배너" />
-        </div>
-        <div className="productBannerTitle">
-          <span className="bannerTitle">티제품</span>
-        </div>
-      </div>
-      <div className="productMain">
-        <div className="productTea">
-          <p>티 제품</p>
-          <ul className="productSortBar">
-            <li>
-              <a href=" ">리뷰많은순</a>
-            </li>
-            <li>
-              <a href=" ">판매순</a>
-            </li>
-            <li>
-              <a href=" ">신상품순</a>
-            </li>
-            <li>
-              <a href=" ">높은 가격순</a>
-            </li>
-            <li>
-              <a href=" ">낮은 가격순</a>
-            </li>
-          </ul>
-        </div>
-        <div className="productAll">
-          <p>총 158갸의 상품이 있습니다.</p>
-          <ul className="productCategorySortBar">
-            <li>
-              <a href=" ">전체</a>
-            </li>
-            <li>
-              <a href=" ">잎차</a>
-            </li>
-            <li>
-              <a href=" ">피라미드</a>
-            </li>
-            <li>
-              <a href=" ">티백</a>
-            </li>
-            <li>
-              <a href=" ">파우더</a>
-            </li>
-          </ul>
-        </div>
-        <div className="productSection">
-          {PRODUCT_INFO_LIST.map(info => (
-            <div key={info.id} className="sullocArchive">
-              <div className="sullocSectionImage">
-                <img src={info.image} alt={info.alt} />
-              </div>
-              <div className="sullocSectionInfo">
-                <div className="sullocSectionInfoTitle">{info.productName}</div>
-                <div className="sullocSectionInfoPrice">
-                  {info.productPrice}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <ul className="priductPagenation">
-        <li>
-          <a href=" ">1</a>
-        </li>
-        <li>
-          <a href=" ">2</a>
-        </li>
-      </ul>
-    </div>
-  );
-}
-
-export default Product;
