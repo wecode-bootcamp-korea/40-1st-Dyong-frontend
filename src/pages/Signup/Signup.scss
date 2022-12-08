@@ -5,7 +5,7 @@
 
 .signUpForm {
   background-color: transparent;
-  width: 375px;
+  width: 400px;
   height: 550px;
   border-radius: 5px;
   margin: 0 auto;
@@ -17,22 +17,31 @@
   width: auto;
   height: auto;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
 .fonta {
   font-size: 25px;
   font-weight: bold;
+  text-align: left;
 }
 
 .fontb {
   font-size: 15px;
   margin-top: 1rem;
+}
+
+.fontc {
+  font-size: 15px;
+}
+
+.fontd {
+  font-size: 15px;
   margin-bottom: 1rem;
 }
 
-.idBox, .nameBox, .passBox, .passcBox, .emailBox, .phoneBox {
+.idBox, .nameBox, .passBox, .emailBox, .phoneBox {
   text-align: center;
   margin-bottom: 0.5rem;
 }
@@ -40,10 +49,10 @@
 input {
   display: block;
   width: 350px;
-  height: 40px;
+  height: 45px;
   margin: 0 auto;
-  background-color: rgb(227, 235, 239);
-  border: 1px solid gray;
+  background-color: rgb(230, 240, 254);
+  border: 1px solid rgb(243,243,243);
   border-radius: 3px;
   text-indent: 5px;
   outline-color: gray;
@@ -60,11 +69,12 @@ input {
 .button {
   display: block;
   width: 350px;
-  height: 30px;
+  height: 47.5px;
   margin: 0 auto;
   border: none;
   border-radius: 3px;
-  background-color: rgb(140, 255, 140);
+  background-color: rgb(93, 150, 239);
+  color: rgb(254,254,254);
   font-style: bold;
   font-size: 20px;
 }

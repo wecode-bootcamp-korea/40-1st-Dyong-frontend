@@ -50,6 +50,23 @@ function Signup() {
       formData.email.includes('.') &&
       formData.phone.includes('-')
     ) {
+      fetch('http://10.58.52.61:8000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+        },
+        body: JSON.stringify({
+          username: formData.id,
+          full_name: formData.name,
+          password: formData.password,
+          email: formData.email,
+          phone_number: formData.phone,
+        }),
+      })
+        //요청
+        .then(response => response.json())
+        // eslint-disable-next-line no-console
+        .then(data => console.log(data));
       navigate('/login');
     } else {
       alert('양식을 다시 확인해주세요!');
@@ -77,8 +94,9 @@ function Signup() {
         <div className="fonta">뷰티포인트 회원가입</div>
         <div className="fontb">
           뷰티포인트 통합 아이디로 아모레퍼시픽 모든 브랜드의 온/오프 매장
-          서비스를 이용하실 수 있습니다.(만 14세 이상 부터 가입 가능합니다.)
         </div>
+        <div className="fontc">서비스를 이용하실 수 있습니다.</div>
+        <div className="fontd">(만 14세 이상 부터 가입 가능합니다.)</div>
         <div className="idBox">
           <HintInput name="id" value={formData.id} onChange={onChangeInput} />
         </div>
