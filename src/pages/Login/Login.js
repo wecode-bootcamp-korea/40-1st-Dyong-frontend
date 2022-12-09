@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import HintInput from '../Input/HintInput';
+import HintInput from '../../components/Input/HintInput';
 import './Login.scss';
 
 export const RULES = {
@@ -26,11 +26,12 @@ function Login() {
 
   const navigate = useNavigate();
 
+  const isAllValid = Object.entries(loginData).every(([key, value]) =>
+    RULES[key].pattern(value)
+  );
+
   const goToMain = () => {
-    if (
-      loginData.id.length > 5 &&
-      loginData.password.includes('!', '@', '#', '$', '%', '^', '&')
-    ) {
+    if (isAllValid) {
       fetch('http://10.58.52.61:8000/signup', {
         method: 'POST',
         headers: {
@@ -54,10 +55,6 @@ function Login() {
   const onChangeInput = ({ target }) => {
     setLoginData({ ...loginData, [target.name]: target.value });
   };
-
-  const isAllValid = Object.entries(loginData).every(([key, value]) =>
-    RULES[key].pattern(value)
-  );
 
   return (
     <section className="login">

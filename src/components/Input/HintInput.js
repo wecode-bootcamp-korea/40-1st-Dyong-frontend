@@ -1,5 +1,5 @@
 import React from 'react';
-import { RULES } from '../Signup/Signup';
+import { RULES } from '../../pages/Signup/Signup';
 import Input from './Input';
 
 const HintInput = ({ name, value = '', ...others }) => {

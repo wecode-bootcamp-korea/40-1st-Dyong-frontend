@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import HintInput from '../Input/HintInput';
+import HintInput from '../../components/Input/HintInput';
 import './Signup.scss';
 
 export const RULES = {
@@ -41,15 +41,16 @@ function Signup() {
 
   const navigate = useNavigate();
 
+  const isAllValid = Object.entries(formData).every(([key, value]) =>
+    RULES[key].pattern(value)
+  );
+
+  const onChangeInput = ({ target }) => {
+    setFormData({ ...formData, [target.name]: target.value });
+  };
+
   const goToLogin = () => {
-    if (
-      formData.id.length > 5 &&
-      formData.name.length > 2 &&
-      formData.password.includes('!', '@', '#', '$', '%', '^', '&') &&
-      formData.email.includes('@') &&
-      formData.email.includes('.') &&
-      formData.phone.includes('-')
-    ) {
+    if (isAllValid) {
       fetch('http://10.58.52.61:8000/signup', {
         method: 'POST',
         headers: {
@@ -72,14 +73,6 @@ function Signup() {
       alert('양식을 다시 확인해주세요!');
     }
   };
-
-  const onChangeInput = ({ target }) => {
-    setFormData({ ...formData, [target.name]: target.value });
-  };
-
-  const isAllValid = Object.entries(formData).every(([key, value]) =>
-    RULES[key].pattern(value)
-  );
 
   return (
     <section className="signup">
