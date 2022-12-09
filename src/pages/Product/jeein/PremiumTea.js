@@ -17,24 +17,24 @@ function PremiumTea() {
           <p>티 제품</p>
           <ul className="productSortBar">
             <li>
-              <Link to=" ">리뷰많은순</Link>
+              <Link to="/products/review">리뷰많은순</Link>
             </li>
             <li>
-              <Link to=" ">판매순</Link>
+              <Link to="/products/sale">판매순</Link>
             </li>
             <li>
-              <Link to=" ">신상품순</Link>
+              <Link to="/products/new_arrival">신상품순</Link>
             </li>
             <li>
-              <Link to=" ">높은 가격순</Link>
+              <Link to="/products/high_price">높은 가격순</Link>
             </li>
             <li>
-              <Link to=" ">낮은 가격순</Link>
+              <Link to="/products/low_price">낮은 가격순</Link>
             </li>
           </ul>
         </div>
         <div className="productAll">
-          <p>총 {PRODUCT_INFO_LIST.length}개의 상품이 있습니다.</p>
+          <p>총 {PRODUCTS.length}개의 상품이 있습니다.</p>
           <ul className="productCategorySortBar">
             <li>
               <Link to=" ">전체</Link>
@@ -54,16 +54,14 @@ function PremiumTea() {
           </ul>
         </div>
         <div className="productSection">
-          {PRODUCT_INFO_LIST.map(info => (
-            <div key={info.id} className="sullocArchive">
+          {PRODUCTS.map(({ id, name, image, price }) => (
+            <div key={id} className="sullocArchive">
               <div className="sullocSectionImage">
-                <img src={info.image} alt={info.alt} />
+                <img src={image} alt={name} />
               </div>
               <div className="sullocSectionInfo">
-                <div className="sullocSectionInfoTitle">{info.productName}</div>
-                <div className="sullocSectionInfoPrice">
-                  {info.productPrice}
-                </div>
+                <div className="sullocSectionInfoTitle">{name}</div>
+                <div className="sullocSectionInfoPrice">{price}</div>
               </div>
             </div>
           ))}
@@ -83,47 +81,41 @@ function PremiumTea() {
 
 export default PremiumTea;
 
-const PRODUCT_INFO_LIST = [
+const PRODUCTS = [
   {
     id: 1,
     image: './images/premium_tea.jpg',
-    alt: '일로향',
-    productName: '일로향',
-    productPrice: '20,000원',
+    name: '일로향',
+    price: '20,000원',
   },
   {
     id: 2,
     image: './images/premium_tea.jpg',
-    alt: '일로향',
-    productName: '일로향2',
-    productPrice: '70,0300원',
+    name: '일로향2',
+    price: '70,0300원',
   },
   {
     id: 2,
     image: './images/premium_tea.jpg',
-    alt: '일로향',
-    productName: '일로향3',
-    productPrice: '70,0300원',
+    name: '일로향3',
+    price: '70,0300원',
   },
   {
     id: 3,
     image: './images/premium_tea.jpg',
-    alt: '일로향',
-    productName: '일로향4',
-    productPrice: '70,02300원',
+    name: '일로향4',
+    price: '70,02300원',
   },
   {
     id: 4,
     image: './images/premium_tea.jpg',
-    alt: '일로향',
-    productName: '일로향5',
-    productPrice: '70,0323100원',
+    name: '일로향5',
+    price: '70,0323100원',
   },
   {
     id: 5,
     image: './images/premium_tea.jpg',
-    alt: '일로향',
-    productName: '일로향6',
-    productPrice: '70,1300원',
+    name: '일로향6',
+    price: '70,1300원',
   },
 ];
