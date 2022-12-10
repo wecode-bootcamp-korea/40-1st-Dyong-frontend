@@ -6,7 +6,7 @@ function PremiumTea() {
     <div className="jejuSulloc">
       <div className="productBanner">
         <div className="productBannerImage">
-          <img src="./images/premium_tea_banner.jpg" alt="프리미엄 배너" />
+          <img src="/images/premium_tea_banner.jpg" alt="프리미엄 배너" />
         </div>
         <div className="productBannerTitle">
           <span className="bannerTitle">명차</span>
@@ -16,12 +16,6 @@ function PremiumTea() {
         <div className="productTea">
           <p>티 제품</p>
           <ul className="productSortBar">
-            <li>
-              <Link to="/products/review">리뷰많은순</Link>
-            </li>
-            <li>
-              <Link to="/products/sale">판매순</Link>
-            </li>
             <li>
               <Link to="/products/new_arrival">신상품순</Link>
             </li>
@@ -84,37 +78,37 @@ export default PremiumTea;
 const PRODUCTS = [
   {
     id: 1,
-    image: './images/premium_tea.jpg',
+    image: '/images/premium_tea.jpg',
     name: '일로향',
     price: '20,000원',
   },
   {
     id: 2,
-    image: './images/premium_tea.jpg',
+    image: '/images/premium_tea.jpg',
     name: '일로향2',
     price: '70,0300원',
   },
   {
     id: 2,
-    image: './images/premium_tea.jpg',
+    image: '/images/premium_tea.jpg',
     name: '일로향3',
     price: '70,0300원',
   },
   {
     id: 3,
-    image: './images/premium_tea.jpg',
+    image: '/images/premium_tea.jpg',
     name: '일로향4',
     price: '70,02300원',
   },
   {
     id: 4,
-    image: './images/premium_tea.jpg',
+    image: '/images/premium_tea.jpg',
     name: '일로향5',
     price: '70,0323100원',
   },
   {
     id: 5,
-    image: './images/premium_tea.jpg',
+    image: '/images/premium_tea.jpg',
     name: '일로향6',
     price: '70,1300원',
   },

@@ -8,6 +8,7 @@ import Footer from './components/Footer/Footer';
 import TeaSet from './pages/Product/jeein/TeaSet';
 import PremiumTea from './pages/Product/jeein/PremiumTea';
 import Malcha from './pages/Product/jeein/Malcha';
+import ProductsDetail from './pages/Product/jeein/ProductsDetail';
 
 const Router = () => {
   return (
@@ -15,7 +16,8 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/products/:id" element={<Product />} />
+        <Route path="/products" element={<Product />} />
+        <Route path="/products/:id" element={<ProductsDetail />} />
         <Route path="/detail" element={<Detail />} />
         <Route path="/tea-set" element={<TeaSet />} />
         <Route path="/premium-tea" element={<PremiumTea />} />

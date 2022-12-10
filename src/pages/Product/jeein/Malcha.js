@@ -6,7 +6,7 @@ function Malcha() {
     <div className="jejuSulloc">
       <div className="productBanner">
         <div className="productBannerImage">
-          <img src="./images/malcha_banner.jpg" alt="녹차,말차 배너" />
+          <img src="/images/malcha_banner.jpg" alt="녹차,말차 배너" />
         </div>
         <div className="productBannerTitle">
           <span className="bannerTitle">녹차/말차</span>
@@ -16,12 +16,6 @@ function Malcha() {
         <div className="productTea">
           <p>티 제품</p>
           <ul className="productSortBar">
-            <li>
-              <Link to="/products/review">리뷰많은순</Link>
-            </li>
-            <li>
-              <Link to="/products/sale">판매순</Link>
-            </li>
             <li>
               <Link to="/products/new_arrival">신상품순</Link>
             </li>
@@ -84,37 +78,37 @@ export default Malcha;
 const PRODUCTS = [
   {
     id: 1,
-    image: './images/malcha.jpg',
+    image: '/images/malcha.jpg',
     name: '제주 순수녹차',
     price: '20,000원',
   },
   {
     id: 2,
-    image: './images/malcha.jpg',
+    image: '/images/malcha.jpg',
     name: '제주 순수녹차2',
     price: '70,0300원',
   },
   {
     id: 2,
-    image: './images/malcha.jpg',
+    image: '/images/malcha.jpg',
     name: '제주 순수녹차3',
     price: '70,0300원',
   },
   {
     id: 3,
-    image: './images/malcha.jpg',
+    image: '/images/malcha.jpg',
     name: '제주 순수녹차4',
     price: '70,02300원',
   },
   {
     id: 4,
-    image: './images/malcha.jpg',
+    image: '/images/malcha.jpg',
     name: '제주 순수녹차5',
     price: '70,0323100원',
   },
   {
     id: 5,
-    image: './images/malcha.jpg',
+    image: '/images/malcha.jpg',
     name: '제주 순수녹차6',
     price: '70,1300원',
   },
