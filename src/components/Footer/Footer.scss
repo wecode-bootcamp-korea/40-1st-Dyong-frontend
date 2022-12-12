@@ -1,4 +1,86 @@
-.class {
-  width: 100px;
-  font-style: italic;
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 400px;
+}
+
+.footerTopLine {
+  width: 100%;
+  height: 60px;
+  background-color: #727272;
+}
+
+.footerMiddle {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  background-color: #f9f9f9;
+}
+
+.middleLeft1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 150px;
+}
+
+.title {
+  font-size: 14px;
+  color: #a0a0a0;
+  padding-left: 40px;
+  padding-bottom: 5px;
+}
+
+.number {
+  font-size: 30px;
+  color: #595959;
+  padding-left: 40px;
+  padding-bottom: 5px;
+}
+
+.time {
+  font-size: 13px;
+  color: #a0a0a0;
+  padding-left: 40px;
+}
+
+.middleLeft2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 150px;
+  // background-color: yellow;
+}
+
+.mail {
+  font-size: 20px;
+  color: #595959;
+  padding-left: 40px;
+  padding-bottom: 5px;
+}
+
+.kakao {
+  font-size: 15px;
+  color: #595959;
+  padding-left: 40px;
+}
+
+.middleRight {
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  height: 150px;
+  background-color: aqua;
+}
+
+.middleRight a {
+}
+
+.footerLast {
+  width: 100%;
+  height: 200px;
+  background-color: white;
 }
