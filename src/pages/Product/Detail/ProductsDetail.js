@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import './Product.scss';
+import '../Product.scss';
 
-function Product() {
+function ProductsDetail() {
   const params = useParams();
-
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch('http://localhost:3000/data/sample.json')
-      .then(response => response.json())
-      .then(result => setUsers(result));
-  }, []);
+  const id = params.id;
 
   return (
     <div className="jejuSulloc">
@@ -39,9 +32,7 @@ function Product() {
           </ul>
         </div>
         <div className="productAll">
-          <p>
-            총 <span>{users.length}</span>개의 상품이 있습니다.
-          </p>
+          <p>총 {PRODUCTS.length}개의 상품이 있습니다.</p>
           <ul className="productCategorySortBar">
             <li>
               <Link to="/products/all">전체</Link>
@@ -61,14 +52,16 @@ function Product() {
           </ul>
         </div>
         <div className="productSection">
-          {users.map(({ id, name, price, image, sub_image }) => (
+          {PRODUCTS.map(({ id, image, name, price }) => (
             <div key={id} className="sullocArchive">
               <div className="sullocSectionImage">
                 <img src={image} alt={name} />
               </div>
               <div className="sullocSectionInfo">
                 <div className="sullocSectionInfoTitle">{name}</div>
-                <div className="sullocSectionInfoPrice">{price}</div>
+                <div className="sullocSectionInfoPrice">
+                  {price.toLocaleString()}
+                </div>
               </div>
             </div>
           ))}
@@ -86,4 +79,43 @@ function Product() {
   );
 }
 
-export default Product;
+export default ProductsDetail;
+
+const PRODUCTS = [
+  {
+    id: 1,
+    image: '/images/우전.jpg',
+    name: '우전',
+    price: '70,000원',
+  },
+  {
+    id: 2,
+    image: '/images/우전.jpg',
+    name: '우전2',
+    price: '70,0300원',
+  },
+  {
+    id: 2,
+    image: '/images/우전.jpg',
+    name: '우전3',
+    price: '70,0300원',
+  },
+  {
+    id: 3,
+    image: '/images/우전.jpg',
+    name: '우전4',
+    price: '70,02300원',
+  },
+  {
+    id: 4,
+    image: '/images/우전.jpg',
+    name: '우전5',
+    price: '70,0323100원',
+  },
+  {
+    id: 5,
+    image: '/images/우전.jpg',
+    name: '우전6',
+    price: '70,1300원',
+  },
+];

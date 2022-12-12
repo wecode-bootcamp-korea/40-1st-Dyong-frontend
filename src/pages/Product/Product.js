@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './Product.scss';
 
-function ProductsDetail() {
+function Product() {
   const params = useParams();
-  const id = params.id;
+
+  const [products, setProducts] = useState([]);
+
+  // useEffect(() => {
+  //   fetch('http://10.58.52.242:8000/products?page=0', {
+  //     method: 'GET',
+  //   })
+  //     .then(response => response.json())
+  //     .then(setProducts);
+  // }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/sample.json')
+      .then(response => response.json())
+      .then(setProducts);
+  }, []);
 
   return (
     <div className="jejuSulloc">
@@ -32,36 +47,36 @@ function ProductsDetail() {
           </ul>
         </div>
         <div className="productAll">
-          <p>총 {PRODUCTS.length}개의 상품이 있습니다.</p>
+          <p>
+            총 <span>{products.length}</span>개의 상품이 있습니다.
+          </p>
           <ul className="productCategorySortBar">
             <li>
-              <Link to="/products/all">전체</Link>
+              <Link to=" ">전체</Link>
             </li>
             <li>
-              <Link to="/products/tea-leaf">잎차</Link>
+              <Link to=" ">잎차</Link>
             </li>
             <li>
-              <Link to="/products/pyramid">피라미드</Link>
+              <Link to=" ">피라미드</Link>
             </li>
             <li>
-              <Link to="/products/teabag">티백</Link>
+              <Link to=" ">티백</Link>
             </li>
             <li>
-              <Link to="/products/powder">파우더</Link>
+              <Link to=" ">파우더</Link>
             </li>
           </ul>
         </div>
         <div className="productSection">
-          {PRODUCTS.map(({ id, image, name, price }) => (
+          {products.map(({ id, name, price, main_image, sub_image }) => (
             <div key={id} className="sullocArchive">
               <div className="sullocSectionImage">
-                <img src={image} alt={name} />
+                <img src={main_image} />
               </div>
               <div className="sullocSectionInfo">
                 <div className="sullocSectionInfoTitle">{name}</div>
-                <div className="sullocSectionInfoPrice">
-                  {price.toLocaleString()}
-                </div>
+                <div className="sullocSectionInfoPrice">{price}</div>
               </div>
             </div>
           ))}
@@ -79,43 +94,4 @@ function ProductsDetail() {
   );
 }
 
-export default ProductsDetail;
-
-const PRODUCTS = [
-  {
-    id: 1,
-    image: '/images/우전.jpg',
-    name: '우전',
-    price: '70,000원',
-  },
-  {
-    id: 2,
-    image: '/images/우전.jpg',
-    name: '우전2',
-    price: '70,0300원',
-  },
-  {
-    id: 2,
-    image: '/images/우전.jpg',
-    name: '우전3',
-    price: '70,0300원',
-  },
-  {
-    id: 3,
-    image: '/images/우전.jpg',
-    name: '우전4',
-    price: '70,02300원',
-  },
-  {
-    id: 4,
-    image: '/images/우전.jpg',
-    name: '우전5',
-    price: '70,0323100원',
-  },
-  {
-    id: 5,
-    image: '/images/우전.jpg',
-    name: '우전6',
-    price: '70,1300원',
-  },
-];
+export default Product;

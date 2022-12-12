@@ -2,70 +2,70 @@
   {
     "id": "ROW",
     "name": "러블리 티 박스",
-    "image": "/images/osulloc_main(1).jpg",
+    "main_image": "/images/osulloc_main(1).jpg",
     "sub_image": "/images/osulloc_main(4).jpg",
     "price": 20000
   },
   {
     "id": "TYS",
     "name": "프리미엄 티 컬렉션",
-    "image": "/images/osulloc_main(2).jpg",
+    "main_image": "/images/osulloc_main(2).jpg",
     "sub_image": "/images/osulloc_main(3).jpg",
     "price": 22400
   },
   {
     "id": "FPO",
     "name": "그린티 랑드샤",
-    "image": "/images/osulloc_main(3).jpg",
+    "main_image": "/images/osulloc_main(3).jpg",
     "sub_image": "/images/osulloc_main(2).jpg",
     "price": 9100
   },
   {
     "id": "TYD",
     "name": "레드파파야 블랙티 20입",
-    "image": "/images/osulloc_main(4).jpg",
+    "main_image": "/images/osulloc_main(4).jpg",
     "sub_image": "/images/osulloc_main(1).jpg",
     "price": 18400
   },
   {
     "id": "YRG",
     "name": "세작",
-    "image": "/images/osulloc_main(1).jpg",
+    "main_image": "/images/osulloc_main(1).jpg",
     "sub_image": "/images/osulloc_main(2).jpg",
     "price": 17000
   },
   {
     "id": "ROW",
     "name": "러블리 티 박스",
-    "image": "/images/osulloc_main(1).jpg",
+    "main_image": "/images/osulloc_main(1).jpg",
     "sub_image": "/images/osulloc_main(4).jpg",
     "price": 20000
   },
   {
     "id": "TYS",
     "name": "프리미엄 티 컬렉션",
-    "image": "/images/osulloc_main(2).jpg",
+    "main_image": "/images/osulloc_main(2).jpg",
     "sub_image": "/images/osulloc_main(3).jpg",
     "price": 22400
   },
   {
     "id": "FPO",
     "name": "그린티 랑드샤",
-    "image": "/images/osulloc_main(3).jpg",
+    "main_image": "/images/osulloc_main(3).jpg",
     "sub_image": "/images/osulloc_main(2).jpg",
     "price": 9100
   },
   {
     "id": "TYD",
     "name": "레드파파야 블랙티 20입",
-    "image": "/images/osulloc_main(4).jpg",
+    "main_image": "/images/osulloc_main(4).jpg",
     "sub_image": "/images/osulloc_main(1).jpg",
     "price": 18400
   },
   {
     "id": "YRG",
     "name": "세작",
-    "image": "/images/osulloc_main(1).jpg",
+    "main_image": "/images/osulloc_main(1).jpg",
     "sub_image": "/images/osulloc_main(2).jpg",
     "price": 17000
   }
