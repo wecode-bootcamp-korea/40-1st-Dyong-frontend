@@ -35,19 +35,19 @@ function ProductsDetail() {
           <p>총 {PRODUCTS.length}개의 상품이 있습니다.</p>
           <ul className="productCategorySortBar">
             <li>
-              <Link to=" ">전체</Link>
+              <Link to="/products/all">전체</Link>
             </li>
             <li>
-              <Link to=" ">잎차</Link>
+              <Link to="/products/tea-leaf">잎차</Link>
             </li>
             <li>
-              <Link to=" ">피라미드</Link>
+              <Link to="/products/pyramid">피라미드</Link>
             </li>
             <li>
-              <Link to=" ">티백</Link>
+              <Link to="/products/teabag">티백</Link>
             </li>
             <li>
-              <Link to=" ">파우더</Link>
+              <Link to="/products/powder">파우더</Link>
             </li>
           </ul>
         </div>

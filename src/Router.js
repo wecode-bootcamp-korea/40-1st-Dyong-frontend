@@ -5,9 +5,6 @@ import Main from './pages/Main/Main';
 import Product from './pages/Product/jeein/Product';
 import Detail from './pages/Product/Detail/Detail';
 import Footer from './components/Footer/Footer';
-import TeaSet from './pages/Product/jeein/TeaSet';
-import PremiumTea from './pages/Product/jeein/PremiumTea';
-import Malcha from './pages/Product/jeein/Malcha';
 import ProductsDetail from './pages/Product/jeein/ProductsDetail';
 
 const Router = () => {
@@ -19,9 +16,6 @@ const Router = () => {
         <Route path="/products" element={<Product />} />
         <Route path="/products/:id" element={<ProductsDetail />} />
         <Route path="/detail" element={<Detail />} />
-        <Route path="/tea-set" element={<TeaSet />} />
-        <Route path="/premium-tea" element={<PremiumTea />} />
-        <Route path="/malcha" element={<Malcha />} />
       </Routes>
       <Footer />
     </BrowserRouter>

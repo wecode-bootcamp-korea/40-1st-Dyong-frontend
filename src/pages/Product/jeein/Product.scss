@@ -30,7 +30,8 @@ a {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ececec;
       .productSortBar {
         display: flex;
         justify-content: flex-end;
@@ -40,7 +41,7 @@ a {
             color: #6c801a;
           }
           a {
-            border-bottom: 3px #6c801a solid;
+            // border-bottom: 3px #6c801a solid;
           }
         }
       }
@@ -49,6 +50,11 @@ a {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-top: 10px;
+      span {
+        font-weight: bold;
+        color: #6c801a;
+      }
       .productCategorySortBar {
         display: flex;
         justify-content: flex-end;
@@ -56,10 +62,13 @@ a {
           margin: 10px;
 
           a {
-            background: #6c801a;
-            color: #fff;
+            background: #f1f1f1;
+            color: #a5a5a5;
             border-radius: 20px;
-            padding: 5px 10px;
+            padding: 8px;
+            display: block;
+            text-align: center;
+            width: 80px;
           }
         }
       }
@@ -67,7 +76,10 @@ a {
     .productSection {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      padding: 0 100px;
+      .sullocSectionInfoPrice {
+        margin-top: 20px;
+      }
     }
   }
   .priductPagenation {
@@ -75,43 +87,6 @@ a {
     justify-content: center;
     li {
       margin: 0 10px;
-    }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .jejuSulloc {
-    .productBannerTitle {
-      left: 80%;
-      span {
-        font-size: 30px;
-      }
-    }
-    .productMain {
-      max-width: 1280px;
-      margin: 30px auto;
-      .productTea {
-        display: block;
-
-        p {
-          display: none;
-        }
-        .productSortBar {
-          justify-content: center;
-        }
-      }
-      .productAll {
-        display: grid;
-        justify-content: center;
-        p {
-          order: 2;
-          margin-top: 15px;
-        }
-        .productCategorySortBar {
-          order: 1;
-          margin-top: 15px;
-        }
-      }
     }
   }
 }
