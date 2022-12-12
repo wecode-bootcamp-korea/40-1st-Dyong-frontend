@@ -3,17 +3,30 @@ import './Drawer.scss';
 
 const Drawer = ({ onMouseLeave, id }) => (
   <div onMouseLeave={onMouseLeave} className="drawer">
-    {CONTENT.map(item => (
-      <>
-        <div>{item.id === id && item.title}</div>
-        <ul>
-          <li>
-            {item.id === id &&
-              item.content.map(element => <div>{element}</div>)}
-          </li>
-        </ul>
-      </>
-    ))}
+    {CONTENT.map(category => {
+      return (
+        <>
+          <div>{category.id === id && category.title}</div>
+          <ul>
+            <li>
+              {category.id === id &&
+                category.subCategory.map(element => (
+                  <div key={element.id}>
+                    {element.list.map(el => (
+                      <div
+                        key={'' + element.id + el.id}
+                        className={el.id === 1 && 'title'}
+                      >
+                        {el.menu}
+                      </div>
+                    ))}
+                  </div>
+                ))}
+            </li>
+          </ul>
+        </>
+      );
+    })}
   </div>
 );
 
@@ -23,7 +36,7 @@ export const CONTENT = [
   {
     id: 1,
     title: '제품',
-    classname: 'firstNavbarAlign',
+    className: 'firstNavbarAlign',
     subCategory: [
       {
         id: 1,
@@ -125,7 +138,7 @@ export const CONTENT = [
   {
     id: 2,
     title: '선물 추천',
-    classname: 'secondNavbarAlign',
+    className: 'secondNavbarAlign',
     subCategory: [
       {
         id: 1,
@@ -142,7 +155,7 @@ export const CONTENT = [
   {
     id: 3,
     title: '다다일상',
-    classname: 'thirdNavbarAlign',
+    className: 'thirdNavbarAlign',
     subCategory: [
       {
         id: 1,
@@ -159,7 +172,7 @@ export const CONTENT = [
   {
     id: 4,
     title: '브랜드',
-    classname: 'fourNavbarAlign',
+    className: 'fourNavbarAlign',
     subCategory: [
       {
         id: 1,

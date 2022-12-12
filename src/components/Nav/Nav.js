@@ -23,7 +23,7 @@ const Nav = () => {
           <img className="logoImage" src="images/Logo.png" alt="로고" />
         </div>
         <ul className="navCategory">
-          {CONTENT.map(({ id, title, classname, subCategory }) => (
+          {CONTENT.map(({ id, title }) => (
             <>
               <div className="navWrapper">
                 <li
@@ -42,6 +42,7 @@ const Nav = () => {
           ))}
         </ul>
       </div>
+
       <div className="rightBox">
         <Link href="#" type="button">
           로그인
@@ -55,22 +56,3 @@ const Nav = () => {
 };
 
 export default Nav;
-
-// const MENU = [
-//   {
-//     id: 1,
-//     title: '제품',
-//   },
-//   {
-//     id: 2,
-//     title: '선물추천',
-//   },
-//   {
-//     id: 3,
-//     title: '다다일상',
-//   },
-//   {
-//     id: 4,
-//     title: '브랜드',
-//   },
-// ];
