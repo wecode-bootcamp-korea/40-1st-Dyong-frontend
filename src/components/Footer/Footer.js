@@ -16,7 +16,7 @@ const Footer = () => {
         </div>
         <div className="middleLeft2">
           <div className="title">특판 · 대량구매 문의</div>
-          <div className="mail">help@osultea.com</div>
+          <div className="mail">help@h.com</div>
           <div className="kakao">카카오톡ID : osulteamall</div>
         </div>
         <div className="middleRight">
@@ -52,7 +52,13 @@ const Footer = () => {
       </div>
 
       {/* 세번째섹션 */}
-      <div className="footerLast"></div>
+      <div className="footerLast">
+        <div className="logoImage">
+          <img src="./images/LogoIcon.png" />
+        </div>
+        <div className="left"></div>
+        <div className="right"></div>
+      </div>
     </footer>
   );
 };

@@ -52,7 +52,6 @@
   justify-content: center;
   width: 300px;
   height: 150px;
-  // background-color: yellow;
 }
 
 .mail {
@@ -70,13 +69,21 @@
 
 .middleRight {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
+  margin-left: 450px;
   width: 500px;
   height: 150px;
-  background-color: aqua;
 }
 
 .middleRight a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.middleRight span {
+  padding-top: 10px;
 }
 
 .footerLast {
