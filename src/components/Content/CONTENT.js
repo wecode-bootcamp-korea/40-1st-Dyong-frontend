@@ -1,23 +1,4 @@
 import React from 'react';
-import './Drawer.scss';
-
-const Drawer = ({ onMouseLeave, id }) => (
-  <div onMouseLeave={onMouseLeave} className="drawer">
-    {CONTENT.map(item => (
-      <>
-        <div>{item.id === id && item.title}</div>
-        <ul>
-          <li>
-            {item.id === id &&
-              item.content.map(element => <div>{element}</div>)}
-          </li>
-        </ul>
-      </>
-    ))}
-  </div>
-);
-
-export default Drawer;
 
 export const CONTENT = [
   {
@@ -174,3 +155,5 @@ export const CONTENT = [
     ],
   },
 ];
+
+export default CONTENT;

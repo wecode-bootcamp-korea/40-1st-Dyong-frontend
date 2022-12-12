@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import Category from './Category/Category';
-import Drawer from '../Drawer/Drawer';
+import { Link } from 'react-router-dom';
+import Drawer, { CONTENT } from '../Drawer/Drawer';
 import './Nav.scss';
 
 const Nav = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isValue, setIsValue] = useState(0);
+  const [menuId, setMenuId] = useState(0);
 
   const onMouseEnterMenu = id => {
     setIsDrawerOpen(true);
-    setIsValue(id);
+    setMenuId(id);
   };
 
   const onMouseLeaveMenu = () => {
@@ -20,35 +20,35 @@ const Nav = () => {
     <div className="nav">
       <div className="leftBox">
         <div className="navLogo">
-          <img className="logoImage" src="images/garden.png" alt="로고" />
+          <img className="logoImage" src="images/Logo.png" alt="로고" />
         </div>
-        <div className="navCategory">
-          <ul className="navList">
-            {MENU.map(({ id, title }) => (
-              <>
+        <ul className="navCategory">
+          {CONTENT.map(({ id, title, classname, subCategory }) => (
+            <>
+              <div className="navWrapper">
                 <li
                   className="navItem"
                   onMouseEnter={() => onMouseEnterMenu(id)}
                 >
-                  <a href="#">{title}</a>
+                  <Link href="/">{title}</Link>
                 </li>
-                <div>
-                  {isDrawerOpen && isValue === id && (
-                    <Drawer onMouseLeave={onMouseLeaveMenu} id={id} />
-                  )}
-                </div>
-              </>
-            ))}
-          </ul>
-        </div>
+              </div>
+              <div>
+                {isDrawerOpen && menuId === id && (
+                  <Drawer onMouseLeave={onMouseLeaveMenu} id={id} />
+                )}
+              </div>
+            </>
+          ))}
+        </ul>
       </div>
       <div className="rightBox">
-        <a href="#" type="button">
+        <Link href="#" type="button">
           로그인
-        </a>
-        <a href="#" type="button">
+        </Link>
+        <Link href="#" type="button">
           회원가입
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -56,21 +56,21 @@ const Nav = () => {
 
 export default Nav;
 
-const MENU = [
-  {
-    id: 1,
-    title: '제품',
-  },
-  {
-    id: 2,
-    title: '선물추천',
-  },
-  {
-    id: 3,
-    title: '다다일상',
-  },
-  {
-    id: 4,
-    title: '브랜드',
-  },
-];
+// const MENU = [
+//   {
+//     id: 1,
+//     title: '제품',
+//   },
+//   {
+//     id: 2,
+//     title: '선물추천',
+//   },
+//   {
+//     id: 3,
+//     title: '다다일상',
+//   },
+//   {
+//     id: 4,
+//     title: '브랜드',
+//   },
+// ];
