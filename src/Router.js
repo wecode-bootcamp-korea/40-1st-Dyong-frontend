@@ -10,6 +10,7 @@ import Footer from './components/Footer/Footer';
 import TeaSet from './pages/Product/jeein/TeaSet';
 import PremiumTea from './pages/Product/jeein/PremiumTea';
 import Malcha from './pages/Product/jeein/Malcha';
+import Cart from './pages/Cart/Cart';
 
 const Router = () => {
   return (
@@ -22,6 +23,7 @@ const Router = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/detail" element={<Detail />} />
+        <Route path="/Cart" element={<Cart />} />
       </Routes>
       <Footer />
     </BrowserRouter>
