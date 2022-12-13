@@ -6,23 +6,20 @@ const Drawer = ({ onMouseLeave, id }) => (
     {CONTENT.map(category => {
       return (
         <>
-          <div>{category.id === id && category.title}</div>
           <ul>
-            <li>
-              {category.id === id &&
-                category.subCategory.map(element => (
-                  <div key={element.id}>
-                    {element.list.map(el => (
-                      <div
-                        key={'' + element.id + el.id}
-                        className={el.id === 1 && 'title'}
-                      >
-                        {el.menu}
-                      </div>
-                    ))}
-                  </div>
-                ))}
-            </li>
+            {category.id === id &&
+              category.subCategory.map(element => (
+                <li className="subCategory" key={element.id}>
+                  {element.list.map(el => (
+                    <div
+                      key={'' + element.id + el.id}
+                      className={el.id === 1 && 'title'}
+                    >
+                      {el.menu}
+                    </div>
+                  ))}
+                </li>
+              ))}
           </ul>
         </>
       );
@@ -146,7 +143,7 @@ export const CONTENT = [
           {
             id: 1,
             link: '/',
-            menu: '준비중입니다.',
+            menu: '준비중입니다',
           },
         ],
       },
@@ -163,7 +160,7 @@ export const CONTENT = [
           {
             id: 1,
             link: '/',
-            menu: '준비중입니다.',
+            menu: '준비중입니다',
           },
         ],
       },
@@ -180,7 +177,7 @@ export const CONTENT = [
           {
             id: 1,
             link: '/',
-            menu: '준비중입니다.',
+            menu: '준비중입니다',
           },
         ],
       },

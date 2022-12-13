@@ -23,7 +23,7 @@ const Nav = () => {
           <img className="logoImage" src="images/Logo.png" alt="로고" />
         </div>
         <ul className="navCategory">
-          {CONTENT.map(({ id, title }) => (
+          {CONTENT.map(({ id, title, subCategory }) => (
             <>
               <div className="navWrapper">
                 <li
