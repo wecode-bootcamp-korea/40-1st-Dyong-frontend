@@ -60,13 +60,13 @@ li {
 
 .icon{
     display: inline-block;
-    margin-right: 2.5px;
+    margin-right: 3px;
     padding: 0;
 }
 
 .icon_img{
     position: relative;
-    top: 0;
+    padding-top: 5px;
     left: 0;
     width: 18px;
     height: 18px;
@@ -171,7 +171,7 @@ li {
 .val{
     width: 30%;
     margin: 0;
-    text-align: center;
+    align-items: center;
     background-color: rgb(247, 249, 251);
     border: none;
     font-size: 25px;
@@ -262,6 +262,11 @@ li {
     min-width: 200px;
     text-align: center;
     font-size: 20px;
+    em{
+        margin-left: 5px;
+        font-weight: bold;
+        color: rgb(253,94,94);
+    }
 }
 
 .product_detail{

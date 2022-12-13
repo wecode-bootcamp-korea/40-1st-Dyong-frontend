@@ -139,7 +139,9 @@ function Detail(props) {
         <div className="tab">
           <div className="tab_table">
             <div className="product_detail">상품상세</div>
-            <div className="product_review">고객리뷰 402개</div>
+            <div className="product_review">
+              고객리뷰 <em>402개</em>
+            </div>
             <div className="product_info">상품고시정보</div>
           </div>
         </div>
