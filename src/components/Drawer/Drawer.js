@@ -6,7 +6,7 @@ const Drawer = ({ subCategory, onMouseLeave, id }) => (
   <div onMouseLeave={onMouseLeave} className="drawer">
     {CONTENT.map(category => {
       return (
-        <ul key={category.id}>
+        <ul key={category.id} className="categoryList">
           {category.id === id &&
             category.subCategory.map(subCategory => (
               <ul key={subCategory.id} className="subCate">
