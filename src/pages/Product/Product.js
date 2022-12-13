@@ -4,6 +4,17 @@ import './Product.scss';
 
 function Product() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [products, setProducts] = useState([]);
+  const location = useLocation();
+  const [sortTab, setSortTab] = useState('');
+  const [categoryTab, setCategoryTab] = useState('');
+
+  useEffect(() => {
+    if (!searchParams.has('p')) {
+      searchParams.set('p', '0');
+      setSearchParams(searchParams);
+    }
+  }, [location.search]);
 
   const setTypeParams = (type, typeItem) => {
     searchParams.set(type, typeItem);
@@ -16,12 +27,9 @@ function Product() {
   };
 
   const setClearParams = () => {
-    searchParams.set('type', 'p=0');
+    searchParams.set('type', 'page');
     setSearchParams(searchParams);
   };
-
-  const [products, setProducts] = useState([]);
-  const location = useLocation();
 
   useEffect(() => {
     fetch(`http://localhost:3000/data/sample.json${location.search}`)
@@ -62,14 +70,35 @@ function Product() {
           <p>티 제품</p>
 
           <ul className="productSortBar">
-            <li onClick={() => setSortParams('sort', 'new_arrival&p=0')}>
-              <Link to="products?sort=new_arrival&p=0">신상품순</Link>
+            <li onClick={() => setSortParams('sort', 'new_arrival')}>
+              <Link to="products?sort=new_arrival">
+                <div
+                  className={`teaSort ${sortTab === 'arrival' ? 'active' : ''}`}
+                  onClick={() => setSortTab('arrival')}
+                >
+                  신상품순
+                </div>
+              </Link>
             </li>
             <li onClick={() => setSortParams('sort', 'high_price')}>
-              <Link to="products?sort=high_price">높은 가격순</Link>
+              <Link to="products?sort=high_price">
+                <div
+                  className={`teaSort ${sortTab === 'high' ? 'active' : ''}`}
+                  onClick={() => setSortTab('high')}
+                >
+                  높은 가격순
+                </div>
+              </Link>
             </li>
             <li onClick={() => setSortParams('sort', 'low_price')}>
-              <Link to="products?sort=low_price">낮은 가격순</Link>
+              <Link to="products?sort=low_price">
+                <div
+                  className={`teaSort ${sortTab === 'low' ? 'active' : ''}`}
+                  onClick={() => setSortTab('low')}
+                >
+                  낮은 가격순
+                </div>
+              </Link>
             </li>
           </ul>
         </div>
@@ -78,26 +107,59 @@ function Product() {
             총 <span>{products.length}</span>개의 상품이 있습니다.
           </p>
           <ul className="productCategorySortBar">
-            <li onClick={() => setClearParams('type', 'p=0')}>
-              <Link to="products?p=0">전체</Link>
+            <li onClick={() => setClearParams('type', 'page')}>
+              <Link to="products?page">
+                <div
+                  className={`btn ${categoryTab === 'all' ? 'active' : ''}`}
+                  onClick={() => setCategoryTab('all')}
+                >
+                  전체
+                </div>
+              </Link>
             </li>
             <li onClick={() => setTypeParams('type', 'tealeaf')}>
-              <Link to="products?type=tealeaf">잎차</Link>
+              <Link to="products?type=tealeaf">
+                <div
+                  className={`btn ${categoryTab === 'leaf' ? 'active' : ''}`}
+                  onClick={() => setCategoryTab('leaf')}
+                >
+                  잎차
+                </div>
+              </Link>
             </li>
             <li onClick={() => setTypeParams('type', 'pyramid')}>
-              <Link to="products?type=pyramid">피라미드</Link>
+              <Link to="products?type=pyramid">
+                <div
+                  className={`btn ${categoryTab === 'pyrmid' ? 'active' : ''}`}
+                  onClick={() => setCategoryTab('pyrmid')}
+                >
+                  피라미드
+                </div>
+              </Link>
             </li>
             <li onClick={() => setTypeParams('type', 'teabag')}>
-              <Link to="products?type=teabag">티백</Link>
+              <Link to="products?type=teabag">
+                <div
+                  className={`btn ${categoryTab === 'teabag' ? 'active' : ''}`}
+                  onClick={() => setCategoryTab('teabag')}
+                >
+                  티백
+                </div>
+              </Link>
             </li>
             <li onClick={() => setTypeParams('type', 'powder')}>
-              <Link to="products?type=powder">파우더</Link>
+              <Link to="products?type=powder">
+                <div
+                  className={`btn ${categoryTab === 'powder' ? 'active' : ''}`}
+                  onClick={() => setCategoryTab('powder')}
+                >
+                  파우더
+                </div>
+              </Link>
             </li>
           </ul>
         </div>
-        {products.map(product => (
-          <ProductSectionCard {...product} />
-        ))}
+        <ProductSectionCard />
       </div>
       <ul className="priductPagenation">
         <li>
