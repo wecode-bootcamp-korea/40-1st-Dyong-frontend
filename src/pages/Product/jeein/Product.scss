@@ -1,0 +1,117 @@
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.jejuSulloc {
+  .productBanner {
+    margin: 0 auto;
+    position: relative;
+    .productBannerImage {
+      img {
+        width: 100%;
+      }
+    }
+    .productBannerTitle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      span {
+        font-weight: 600;
+        font-size: 48px;
+      }
+    }
+  }
+  .productMain {
+    max-width: 1280px;
+    margin: 30px auto;
+    .productTea {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      .productSortBar {
+        display: flex;
+        justify-content: flex-end;
+        li {
+          margin: 10px;
+          &hover {
+            color: #6c801a;
+          }
+          a {
+            border-bottom: 3px #6c801a solid;
+          }
+        }
+      }
+    }
+    .productAll {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .productCategorySortBar {
+        display: flex;
+        justify-content: flex-end;
+        li {
+          margin: 10px;
+
+          a {
+            background: #6c801a;
+            color: #fff;
+            border-radius: 20px;
+            padding: 5px 10px;
+          }
+        }
+      }
+    }
+    .productSection {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  .priductPagenation {
+    display: flex;
+    justify-content: center;
+    li {
+      margin: 0 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .jejuSulloc {
+    .productBannerTitle {
+      left: 80%;
+      span {
+        font-size: 30px;
+      }
+    }
+    .productMain {
+      max-width: 1280px;
+      margin: 30px auto;
+      .productTea {
+        display: block;
+
+        p {
+          display: none;
+        }
+        .productSortBar {
+          justify-content: center;
+        }
+      }
+      .productAll {
+        display: grid;
+        justify-content: center;
+        p {
+          order: 2;
+          margin-top: 15px;
+        }
+        .productCategorySortBar {
+          order: 1;
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}
