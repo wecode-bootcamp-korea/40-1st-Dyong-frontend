@@ -95,7 +95,9 @@ function Product() {
             </li>
           </ul>
         </div>
-        <ProductSectionCard />
+        {products.map(product => (
+          <ProductSectionCard {...product} />
+        ))}
       </div>
       <ul className="priductPagenation">
         <li>
