@@ -1,0 +1,134 @@
+<<<<<<< HEAD
+=======
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 400px;
+}
+
+.footerTopLine {
+  width: 100%;
+  height: 60px;
+  background-color: #727272;
+}
+
+.footerMiddle {
+  display: flex;
+  width: 100%;
+  height: 150px;
+  background-color: #f9f9f9;
+}
+
+.middleLeft1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 150px;
+}
+
+.title {
+  font-size: 14px;
+  color: #a0a0a0;
+  padding-left: 40px;
+  padding-bottom: 5px;
+}
+
+.number {
+  font-size: 30px;
+  color: #595959;
+  padding-left: 40px;
+  padding-bottom: 5px;
+}
+
+.time {
+  font-size: 13px;
+  color: #a0a0a0;
+  padding-left: 40px;
+}
+
+.middleLeft2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+  height: 150px;
+}
+
+.mail {
+  font-size: 20px;
+  color: #595959;
+  padding-left: 40px;
+  padding-bottom: 5px;
+}
+
+.kakao {
+  font-size: 15px;
+  color: #595959;
+  padding-left: 40px;
+}
+
+.middleRight {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 450px;
+  width: 500px;
+  height: 150px;
+}
+
+.middleRight a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.middleRight span {
+  padding-top: 10px;
+}
+
+.footerLast {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  background-color: white;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 100%;
+  .logoImage {
+    width: 150px;
+    height: 150px;
+    margin-top: 20px;
+  }
+}
+
+.left {
+  width: 800px;
+  height: 100%;
+}
+
+.copyright {
+  width: 800px;
+  height: 65px;
+  ul {
+    display: flex;
+    padding: 30px 0;
+    font-size: 14px;
+    color: #595959;
+  }
+}
+
+.contents {
+  font-size: 12px;
+  span {
+    display: inline-block;
+    margin-bottom: 3px;
+    color: #a0a0a0;
+  }
+}
+>>>>>>> master
