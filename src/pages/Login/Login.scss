@@ -1,0 +1,82 @@
+.Login {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .loginForm {
+    background-color: transparent;
+    width: 375px;
+    height: 550px;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 5rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .logo_box {
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .font_top {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .font_bottom {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.1rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .login_idBox, .login_passBox {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  input {
+    display: block;
+    width: 350px;
+    height: 45px;
+    margin: 0 auto;
+    background-color: rgb(230, 240, 254);
+    border: 1px solid rgb(243,243,243);
+    border-radius: 3px;
+    text-indent: 5px;
+    outline-color: gray;
+  }
+  
+  .login_check {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .login_button {
+    display: block;
+    width: 350px;
+    height: 47.5px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(93, 150, 239);
+    color: rgb(254,254,254);
+    font-style: bold;
+    font-size: 20px;
+  }
+  
+  .login_faq {
+    margin-top: 2rem;
+    font-size: 15px;
+    text-align: center;
+    color: rgb(39, 39, 255);
+  }
+  
