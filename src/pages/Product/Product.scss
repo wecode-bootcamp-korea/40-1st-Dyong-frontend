@@ -76,15 +76,24 @@ a {
     .productSection {
       display: flex;
       flex-wrap: wrap;
-      padding: 0 100px;
-      .sullocSectionInfoPrice {
-        margin-top: 20px;
+      padding-top: 20px;
+      .sullocArchive {
+        width: 25%;
+        .sullocSectionImage {
+          img {
+            width: 100%;
+          }
+        }
+        .sullocSectionInfoPrice {
+          margin-top: 20px;
+        }
       }
     }
   }
   .priductPagenation {
     display: flex;
     justify-content: center;
+    margin: 150px auto 50px;
     li {
       margin: 0 10px;
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
-import '../Product.scss';
+import '../Product/Product.scss';
 
 function ProductsDetail() {
   const params = useParams();
