@@ -4,9 +4,12 @@ import Nav from './components/Nav/Nav';
 import Signup from './pages/Signup/Signup';
 import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
-import Product from './pages/Product/Product';
+import Product from './pages/Product/jeein/Product';
 import Detail from './pages/Product/Detail/Detail';
 import Footer from './components/Footer/Footer';
+import TeaSet from './pages/Product/jeein/TeaSet';
+import PremiumTea from './pages/Product/jeein/PremiumTea';
+import Malcha from './pages/Product/jeein/Malcha';
 
 const Router = () => {
   return (
@@ -14,9 +17,10 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/main" element={<Main />} />
+        <Route path="/products/" element={<Product />} />
+        <Route path="/main" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/product" element={<Product />} />
         <Route path="/detail" element={<Detail />} />
       </Routes>
       <Footer />
