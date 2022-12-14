@@ -4,9 +4,7 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <footer className="footer">
-      {/* 첫번째섹션 */}
       <div className="footerTopLine"></div>
-      {/* 두번째섹션 */}
       <div className="footerMiddle">
         <div className="middleLeft1">
           <div className="title">고객상담센터 · 주문/배송문의</div>
@@ -49,8 +47,6 @@ const Footer = () => {
           </a>
         </div>
       </div>
-
-      {/* 세번째섹션 */}
       <div className="footerLast">
         <div className="logo">
           <img className="logoImage" src="./images/LogoIcon.png" />
