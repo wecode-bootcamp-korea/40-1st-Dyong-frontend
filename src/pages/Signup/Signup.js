@@ -55,7 +55,7 @@ function Signup() {
 
   const goToLogin = () => {
     if (isAllValid) {
-      fetch('http://10.58.52.239:8000/users/signup', {
+      fetch('http://10.58.52.70:8000/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',

@@ -27,7 +27,7 @@ function Login() {
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify({
-          id: loginData.id,
+          username: loginData.id,
           password: loginData.password,
         }),
       })
