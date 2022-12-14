@@ -6,8 +6,8 @@ function Product() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const location = useLocation();
-  const [sortTab, setSortTab] = useState('');
-  const [categoryTab, setCategoryTab] = useState('');
+  const sortTab = searchParams.get('sort');
+  const categoryTab = searchParams.get('type');
 
   const [pagination, setPagination] = useSearchParams();
   const offset = pagination.get('offset');
@@ -16,8 +16,14 @@ function Product() {
   useEffect(() => {
     if (!searchParams.has('p')) {
       searchParams.set('p', '0');
-      setSearchParams(searchParams);
     }
+    if (!searchParams.has('sort')) {
+      searchParams.set('sort', 'new_arrival');
+    }
+    if (!searchParams.has('type')) {
+      searchParams.set('type', 'page');
+    }
+    setSearchParams(searchParams);
   }, [location.search]);
 
   const setTypeParams = (type, typeItem) => {
@@ -82,8 +88,9 @@ function Product() {
             <li onClick={() => setSortParams('sort', 'new_arrival')}>
               <Link to="products?sort=new_arrival">
                 <div
-                  className={`teaSort ${sortTab === 'arrival' ? 'active' : ''}`}
-                  onClick={() => setSortTab('arrival')}
+                  className={`teaSort ${
+                    sortTab === 'new_arrival' ? 'active' : ''
+                  }`}
                 >
                   신상품순
                 </div>
@@ -92,8 +99,9 @@ function Product() {
             <li onClick={() => setSortParams('sort', 'high_price')}>
               <Link to="products?sort=high_price">
                 <div
-                  className={`teaSort ${sortTab === 'high' ? 'active' : ''}`}
-                  onClick={() => setSortTab('high')}
+                  className={`teaSort ${
+                    sortTab === 'high_price' ? 'active' : ''
+                  }`}
                 >
                   높은 가격순
                 </div>
@@ -102,8 +110,9 @@ function Product() {
             <li onClick={() => setSortParams('sort', 'low_price')}>
               <Link to="products?sort=low_price">
                 <div
-                  className={`teaSort ${sortTab === 'low' ? 'active' : ''}`}
-                  onClick={() => setSortTab('low')}
+                  className={`teaSort ${
+                    sortTab === 'low_price' ? 'active' : ''
+                  }`}
                 >
                   낮은 가격순
                 </div>
@@ -119,8 +128,7 @@ function Product() {
             <li onClick={() => setClearParams('type', 'page')}>
               <Link to="products?page">
                 <div
-                  className={`btn ${categoryTab === 'all' ? 'active' : ''}`}
-                  onClick={() => setCategoryTab('all')}
+                  className={`btn ${categoryTab === 'page' ? 'active' : ''}`}
                 >
                   전체
                 </div>
@@ -129,8 +137,7 @@ function Product() {
             <li onClick={() => setTypeParams('type', 'tealeaf')}>
               <Link to="products?type=tealeaf">
                 <div
-                  className={`btn ${categoryTab === 'leaf' ? 'active' : ''}`}
-                  onClick={() => setCategoryTab('leaf')}
+                  className={`btn ${categoryTab === 'tealeaf' ? 'active' : ''}`}
                 >
                   잎차
                 </div>
@@ -139,8 +146,7 @@ function Product() {
             <li onClick={() => setTypeParams('type', 'pyramid')}>
               <Link to="products?type=pyramid">
                 <div
-                  className={`btn ${categoryTab === 'pyrmid' ? 'active' : ''}`}
-                  onClick={() => setCategoryTab('pyrmid')}
+                  className={`btn ${categoryTab === 'pyramid' ? 'active' : ''}`}
                 >
                   피라미드
                 </div>
@@ -150,7 +156,6 @@ function Product() {
               <Link to="products?type=teabag">
                 <div
                   className={`btn ${categoryTab === 'teabag' ? 'active' : ''}`}
-                  onClick={() => setCategoryTab('teabag')}
                 >
                   티백
                 </div>
@@ -160,7 +165,6 @@ function Product() {
               <Link to="products?type=powder">
                 <div
                   className={`btn ${categoryTab === 'powder' ? 'active' : ''}`}
-                  onClick={() => setCategoryTab('powder')}
                 >
                   파우더
                 </div>
