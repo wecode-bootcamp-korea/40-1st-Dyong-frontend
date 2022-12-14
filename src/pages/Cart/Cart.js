@@ -39,14 +39,29 @@ const Cart = () => {
 
         <div className="rightBox">
           <ul className="list">
-            <li className="item"></li>
-            <li className="item"></li>
-            <li className="item"></li>
-            <li className="item"></li>
-            <li className="item"></li>
+            <li className="item">
+              <span>상품 금액</span>
+              <span>+0원</span>
+            </li>
+            <li className="item">
+              <span>상품 할인</span>
+              <span>-0원</span>
+            </li>
+            <li className="item">
+              <span>배송비</span>
+              <span>+0원</span>
+            </li>
           </ul>
-          <div className="price"></div>
-          <div className="order"></div>
+          <div className="expectedPrice">
+            <span>결제 예상 금액</span>
+            <span>0원</span>
+          </div>
+
+          <div className="order">
+            <button className="buyButton" type="submit">
+              0원 주문하기
+            </button>
+          </div>
         </div>
       </section>
     </main>
