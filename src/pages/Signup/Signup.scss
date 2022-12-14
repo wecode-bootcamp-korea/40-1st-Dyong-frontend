@@ -1,6 +1,8 @@
-.Signup {
+.signup {
+  min-height: 100vh;
   font-family: sans-serif;
   text-align: center;
+  background-color: white;
 }
 
 .signUpForm {
@@ -13,46 +15,29 @@
   margin-bottom: 0.6rem;
 }
 
-.logo_box {
-  width: auto;
-  height: auto;
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-}
-
-.fonta {
-  font-size: 25px;
+.intro {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  font-size: 30px;
   font-weight: bold;
-  text-align: left;
-}
-
-.fontb {
-  font-size: 15px;
-  margin-top: 1rem;
-}
-
-.fontc {
-  font-size: 15px;
-}
-
-.fontd {
-  font-size: 15px;
-  margin-bottom: 1rem;
+  text-align: center;
+  color: rgb(108, 127, 25);
 }
 
 .idBox, .nameBox, .passBox, .emailBox, .phoneBox {
-  text-align: center;
-  margin-bottom: 0.5rem;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 1.75rem;
 }
 
 input {
   display: block;
-  width: 350px;
+  width: 75%;
   height: 45px;
   margin: 0 auto;
-  background-color: rgb(230, 240, 254);
-  border: 1px solid rgb(243,243,243);
+  margin-bottom: 0.5rem;
+  background-color: rgb(244, 248, 241);
+  border: 1px solid rgb(230, 230, 230);
   border-radius: 3px;
   text-indent: 5px;
   outline-color: gray;
@@ -60,20 +45,21 @@ input {
 
 .check {
   text-align: center;
-  color: red;
+  color: rgb(108, 127, 25);
+  font-size: 12px;
   font-weight: bold;
-  margin-top: 1rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
 }
 
 .button {
   display: block;
-  width: 350px;
+  width: 75%;
   height: 47.5px;
   margin: 0 auto;
   border: none;
   border-radius: 3px;
-  background-color: rgb(93, 150, 239);
+  background-color: rgb(194, 218, 188);
   color: rgb(254,254,254);
   font-style: bold;
   font-size: 20px;
@@ -83,5 +69,5 @@ input {
   margin-top: 2rem;
   font-size: 15px;
   text-align: center;
-  color: rgb(39, 39, 255);
+  color: rgb(95, 170, 255);
 }

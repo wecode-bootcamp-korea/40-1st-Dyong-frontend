@@ -3,7 +3,7 @@ import './Detail.scss';
 
 function Detail(props) {
   const [value, setValue] = useState(1);
-  const price = 28000;
+  const price = 350000;
 
   const inputValue = e => {
     setValue(value);
@@ -18,6 +18,12 @@ function Detail(props) {
       return;
     }
     setValue(value - 1);
+  };
+
+  const goToBuy = () => {
+    alert(
+      Intl.NumberFormat('ko-KR').format(price * value) + '원 구매하셨습니다.'
+    );
   };
 
   return (
@@ -127,7 +133,7 @@ function Detail(props) {
                 <button type="button" className="cart">
                   장바구니
                 </button>
-                <button type="button" className="buy">
+                <button type="button" className="buy" onClick={goToBuy}>
                   바로구매
                 </button>
               </div>
@@ -140,7 +146,7 @@ function Detail(props) {
           <div className="tab_table">
             <div className="product_detail">상품상세</div>
             <div className="product_review">
-              고객리뷰 <em>402개</em>
+              고객리뷰 <strong>402개</strong>
             </div>
             <div className="product_info">상품고시정보</div>
           </div>
