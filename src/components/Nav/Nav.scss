@@ -28,7 +28,6 @@
           display: flex;
           font-size: 18px;
           padding: 10px 0;
-
           &::after {
             display: none;
             content: '';
@@ -42,13 +41,11 @@
             &::after {
               display: block;
             }
-            // border-bottom: 3px solid #30761e;
           }
         }
       }
     }
   }
-
   .rightBox {
     display: flex;
     justify-content: space-around;
