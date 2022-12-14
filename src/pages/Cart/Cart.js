@@ -3,8 +3,23 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartsList, setCartsList] = useState(CartList);
+  const [value, setValue] = useState(1);
+  const price = 350000;
 
-  console.log(cartsList);
+  const inputValue = e => {
+    setValue(value);
+  };
+
+  const addValue = () => {
+    setValue(value + 1);
+  };
+
+  const minusValue = () => {
+    if (inputValue < 2) {
+      return;
+    }
+    setValue(value - 1);
+  };
 
   return (
     <main>
@@ -45,9 +60,21 @@ const Cart = () => {
                       <p>{cartList.content}</p>
                     </div>
                     <div className="buttonWrapper">
-                      <button className="buttonSize">-</button>
+                      <button
+                        className="buttonSize"
+                        type="button"
+                        onClick={minusValue}
+                      >
+                        -
+                      </button>
                       <strong>{cartList.quan}</strong>
-                      <button className="buttonSize">+</button>
+                      <button
+                        className="buttonSize"
+                        type="button"
+                        onClick={addValue}
+                      >
+                        +
+                      </button>
                     </div>
                     <div className="price">
                       <strong>{cartList.price.toLocaleString()}원</strong>
@@ -130,7 +157,7 @@ const CartList = [
   },
   {
     id: 3,
-    name: '시트릿 티 스토리',
+    name: '시릿 티 스토리',
     content:
       '신비로운 섬 제주의 다채로운 향기와 이야기를 품은 취향 걱정없이 선물하기 좋은 고급스러운 구성의 선물 세트',
     imageUrl:
