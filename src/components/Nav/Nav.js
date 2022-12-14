@@ -30,7 +30,7 @@ const Nav = () => {
                   className="navItem"
                   onMouseEnter={() => onMouseEnterMenu(id)}
                 >
-                  <Link href="/">{title}</Link>
+                  <Link href="#">{title}</Link>
                 </li>
               </div>
               <div>

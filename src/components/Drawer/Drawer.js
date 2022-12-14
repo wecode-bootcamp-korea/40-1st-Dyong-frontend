@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Drawer.scss';
 import { CONTENT } from '../Nav/Nav';
 
@@ -12,7 +13,7 @@ const Drawer = ({ subCategory, onMouseLeave, id }) => (
               <ul key={subCategory.id} className="subCate">
                 {subCategory.list.map(menu => (
                   <li key={menu.id} className="menuCate">
-                    {menu.menu}
+                    <Link href="#">{menu.menu}</Link>
                   </li>
                 ))}
               </ul>
