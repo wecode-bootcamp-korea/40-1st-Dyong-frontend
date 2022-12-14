@@ -6,7 +6,6 @@ const Footer = () => {
     <footer className="footer">
       {/* 첫번째섹션 */}
       <div className="footerTopLine"></div>
-
       {/* 두번째섹션 */}
       <div className="footerMiddle">
         <div className="middleLeft1">
