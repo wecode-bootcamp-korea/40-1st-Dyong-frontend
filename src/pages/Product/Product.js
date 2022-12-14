@@ -9,6 +9,12 @@ function Product() {
   const [sortTab, setSortTab] = useState('');
   const [categoryTab, setCategoryTab] = useState('');
 
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const offset = searchParams.get('offset');
+  // const limit = searchParams.get('limit');
+
+  // const [posts, setPosts] = useState();
+
   useEffect(() => {
     if (!searchParams.has('p')) {
       searchParams.set('p', '0');
