@@ -3,7 +3,6 @@
   align-items: center;
   width: 100%;
   height: 150px;
-  // background-color: red;
   h2 {
     font-size: 30px;
     margin-left: 190px;
@@ -16,28 +15,26 @@
   align-items: flex-start;
   width: 100%;
   height: 450px;
-  // background-color: yellow;
 
   .leftBox {
     width: 800px;
     height: 360px;
-    background-color: aqua;
     .section1 {
       display: flex;
       justify-content: space-between;
       width: 800px;
       height: 50px;
-      background-color: red;
+      border-bottom: 1px solid #383838;
       .left1 {
         display: flex;
         align-items: center;
         width: 130px;
         height: 50px;
-        background-color: palegreen;
         .checkBox {
           width: 18px;
           margin-left: 20px;
           margin-right: 10px;
+          accent-color: #6c801a;
         }
         .checkBoxText {
           font-size: 14px;
@@ -49,13 +46,77 @@
         justify-content: flex-end;
         width: 130px;
         height: 50px;
-        background-color: peachpuff;
-        .deleteText {
+        button {
           font-size: 14px;
           margin-right: 10px;
-          color: #383838;
+          border: 0;
+          background-color: transparent;
+          color: #666;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
+    }
+    .section2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 800px;
+      height: 150px;
+      border-bottom: 1px solid #e6e6e6;
+      span {
+        font-size: 13px;
+        color: #666;
+      }
+    }
+    .section3 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 800px;
+      height: 110px;
+      .selectOrder {
+        width: 170px;
+        height: 50px;
+        font-size: 15px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .allOrder {
+        width: 170px;
+        height: 50px;
+        margin-left: 20px;
+        font-size: 15px;
+        color: white;
+        border-radius: 4px;
+        border: 1px solid #6c801a;
+        background-color: #6c801a;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .section4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    height: 20px;
+    img {
+      width: 17px;
+      height: 17px;
+    }
+    span {
+      font-size: 13px;
+      color: #a3a3a3;
+      margin-left: 5px;
     }
   }
 
@@ -65,22 +126,4 @@
     margin-left: 40px;
     background-color: yellowgreen;
   }
-}
-
-.section2 {
-  width: 800px;
-  height: 150px;
-  background-color: orange;
-}
-
-.section3 {
-  width: 800px;
-  height: 110px;
-  background-color: palevioletred;
-}
-
-.section4 {
-  width: 800px;
-  height: 50px;
-  background-color: purple;
 }
