@@ -9,11 +9,9 @@ function Product() {
   const [sortTab, setSortTab] = useState('');
   const [categoryTab, setCategoryTab] = useState('');
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const offset = searchParams.get('offset');
-  // const limit = searchParams.get('limit');
-
-  // const [posts, setPosts] = useState();
+  const [pagination, setPagination] = useSearchParams();
+  const offset = pagination.get('offset');
+  const limit = pagination.get('limit');
 
   useEffect(() => {
     if (!searchParams.has('p')) {
@@ -42,6 +40,11 @@ function Product() {
       .then(response => response.json())
       .then(setProducts);
   }, []);
+
+  const movePage = pageNumber => {
+    pagination.set('offset', (pageNumber - 1) * 10);
+    setPagination(pagination);
+  };
 
   const ProductSectionCard = () => {
     return (
@@ -169,10 +172,10 @@ function Product() {
       </div>
       <ul className="priductPagenation">
         <li>
-          <Link to=" ">1</Link>
+          <button onClick={() => movePage(1)}>1</button>
         </li>
         <li>
-          <Link to=" ">2</Link>
+          <button onClick={() => movePage(2)}>2</button>
         </li>
       </ul>
     </div>
