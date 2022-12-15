@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Drawer from '../Drawer/Drawer';
 import './Nav.scss';
 
@@ -16,6 +16,12 @@ const Nav = () => {
     setIsDrawerOpen(false);
   };
 
+  const navigate = useNavigate();
+
+  const moveMain = e => {
+    navigate('/products');
+  };
+
   return (
     <div className="nav">
       <div className="leftBox">
@@ -29,8 +35,9 @@ const Nav = () => {
                 <li
                   className="navItem"
                   onMouseEnter={() => onMouseEnterMenu(id)}
+                  onClick={() => id === 1 && moveMain()}
                 >
-                  <Link href="#">{title}</Link>
+                  {title}
                 </li>
               </div>
               <div>
@@ -51,7 +58,7 @@ const Nav = () => {
         <Link to="/login" type="button">
           로그인
         </Link>
-        <Link to="signup" type="button">
+        <Link to="/signup" type="button">
           회원가입
         </Link>
       </div>

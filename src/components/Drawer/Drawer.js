@@ -13,7 +13,7 @@ const Drawer = ({ subCategory, onMouseLeave, id }) => (
               <ul key={subCategory.id} className="subCate">
                 {subCategory.list.map(menu => (
                   <li key={menu.id} className="menuCate">
-                    <Link href="#">{menu.menu}</Link>
+                    <Link to="/products">{menu.menu}</Link>
                   </li>
                 ))}
               </ul>
