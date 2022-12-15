@@ -48,10 +48,10 @@ const Nav = () => {
       </div>
 
       <div className="rightBox">
-        <Link href="#" type="button">
+        <Link to="/login" type="button">
           로그인
         </Link>
-        <Link href="#" type="button">
+        <Link to="signup" type="button">
           회원가입
         </Link>
       </div>

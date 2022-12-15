@@ -7,9 +7,6 @@ import Main from './pages/Main/Main';
 import Product from './pages/Product/jeein/Product';
 import Detail from './pages/Product/Detail/Detail';
 import Footer from './components/Footer/Footer';
-import TeaSet from './pages/Product/jeein/TeaSet';
-import PremiumTea from './pages/Product/jeein/PremiumTea';
-import Malcha from './pages/Product/jeein/Malcha';
 
 const Router = () => {
   return (
