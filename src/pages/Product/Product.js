@@ -9,16 +9,15 @@ function Product() {
   const sortTab = searchParams.get('sort');
   const categoryTab = searchParams.get('type');
 
-  const [pagination, setPagination] = useSearchParams();
-  const offset = pagination.get('offset');
-  const limit = pagination.get('limit');
+  const offset = searchParams.get('offset');
+  const limit = searchParams.get('limit');
 
   useEffect(() => {
-    if (!searchParams.has('p')) {
-      searchParams.set('p', '0');
+    if (!searchParams.has('page')) {
+      searchParams.set('page', '0');
     }
     if (!searchParams.has('sort')) {
-      searchParams.set('sort', 'new_arrival');
+      searchParams.set('sort', 'new-arrival');
     }
     if (!searchParams.has('type')) {
       searchParams.set('type', 'page');
@@ -42,14 +41,16 @@ function Product() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/data/sample.json${location.search}`)
-      .then(response => response.json())
-      .then(setProducts);
-  }, []);
+    fetch(
+      `http://localhost:3000/data/sample.json${location.search}&_limit=${limit}&_offset=${offset}`
+    )
+      .then(res => res.json())
+      .then(data => setSearchParams(data));
+  }, [offset, limit, location.search]);
 
   const movePage = pageNumber => {
-    pagination.set('offset', (pageNumber - 1) * 10);
-    setPagination(pagination);
+    searchParams.set('offset', (pageNumber - 1) * 10);
+    setSearchParams(searchParams);
   };
 
   const ProductSectionCard = () => {
@@ -85,33 +86,33 @@ function Product() {
           <p>티 제품</p>
 
           <ul className="productSortBar">
-            <li onClick={() => setSortParams('sort', 'new_arrival')}>
-              <Link to="products?sort=new_arrival">
+            <li onClick={() => setSortParams('sort', 'new-arrival')}>
+              <Link to="products?sort=new-arrival">
                 <div
                   className={`teaSort ${
-                    sortTab === 'new_arrival' ? 'active' : ''
+                    sortTab === 'new-arrival' ? 'active' : ''
                   }`}
                 >
                   신상품순
                 </div>
               </Link>
             </li>
-            <li onClick={() => setSortParams('sort', 'high_price')}>
-              <Link to="products?sort=high_price">
+            <li onClick={() => setSortParams('sort', 'high-price')}>
+              <Link to="products?sort=high-price">
                 <div
                   className={`teaSort ${
-                    sortTab === 'high_price' ? 'active' : ''
+                    sortTab === 'high-price' ? 'active' : ''
                   }`}
                 >
                   높은 가격순
                 </div>
               </Link>
             </li>
-            <li onClick={() => setSortParams('sort', 'low_price')}>
-              <Link to="products?sort=low_price">
+            <li onClick={() => setSortParams('sort', 'low-price')}>
+              <Link to="products?sort=low-price">
                 <div
                   className={`teaSort ${
-                    sortTab === 'low_price' ? 'active' : ''
+                    sortTab === 'low-price' ? 'active' : ''
                   }`}
                 >
                   낮은 가격순
