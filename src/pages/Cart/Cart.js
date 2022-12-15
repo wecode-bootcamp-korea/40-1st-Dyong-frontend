@@ -52,10 +52,10 @@ const Cart = () => {
   };
 
   const totalPrice = (a, id) => {
-    return (a = a + id.price * id.quan);
+    return a + id.price * id.quan;
   };
 
-  const totalAmount = CartList.reduce(totalPrice, 0).toLocaleString();
+  const totalAmount = cartsList.reduce(totalPrice, 0).toLocaleString();
 
   return (
     <main>
@@ -80,7 +80,6 @@ const Cart = () => {
               </button>
             </div>
           </div>
-
           <ul className="section2">
             {cartsList.length === 0 ? (
               <span>장바구니에 담긴 상품이 없습니다.</span>
@@ -100,7 +99,6 @@ const Cart = () => {
                     <div className="imgWrapper">
                       <img src={cartList.imageUrl} alt={cartList.name} />
                     </div>
-
                     <div className="buttonWrapper">
                       <button
                         className="buttonSize"
@@ -116,29 +114,22 @@ const Cart = () => {
                         +
                       </button>
                     </div>
-
                     <div className="price">
                       <strong>
                         {(cartList.price * cartList.quan).toLocaleString()}원
                       </strong>
                     </div>
-                    {/* <button className="purchaseBtn">바로구매</button> */}
                   </li>
                 );
               })
             )}
           </ul>
         </div>
-
         <div className="rightBox">
           <ul className="list">
             <li className="item">
               <span>상품 금액</span>
               <span>{totalAmount}원</span>
-            </li>
-            <li className="item">
-              <span>배송비</span>
-              <span>+0원</span>
             </li>
           </ul>
           <div className="expectedPrice">
