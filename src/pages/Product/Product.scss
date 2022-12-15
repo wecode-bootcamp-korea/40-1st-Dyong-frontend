@@ -1,8 +1,3 @@
-a {
-  text-decoration: none;
-  color: #000;
-}
-
 .jejuSulloc {
   .productBanner {
     margin: 0 auto;
@@ -30,7 +25,7 @@ a {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
       .productSortBar {
         display: flex;
         justify-content: flex-end;
@@ -39,8 +34,12 @@ a {
           &hover {
             color: #6c801a;
           }
-          a {
-            border-bottom: 3px #6c801a solid;
+          .teaSort {
+          }
+          .teaSort.active {
+            border-bottom: 3px solid #6c801a;
+            color: #6c801a;
+            padding-bottom: 5px;
           }
         }
       }
@@ -49,17 +48,40 @@ a {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-top: 10px;
+      span {
+        font-weight: bold;
+        color: #6c801a;
+      }
       .productCategorySortBar {
         display: flex;
         justify-content: flex-end;
         li {
           margin: 10px;
-
-          a {
-            background: #6c801a;
-            color: #fff;
+          .btn {
+            background: #f1f1f1;
+            color: #a5a5a5;
             border-radius: 20px;
-            padding: 5px 10px;
+            padding: 8px;
+            display: block;
+            text-align: center;
+            width: 80px;
+          }
+          .btn.active {
+            background-color: #6c801a;
+            color: #f1f1f1;
+            border-radius: 20px;
+            padding: 8px;
+            display: block;
+            text-align: center;
+            width: 80px;
+          }
+          a {
+            border-radius: 20px;
+            padding: 8px;
+            display: block;
+            text-align: center;
+            width: 80px;
           }
         }
       }
@@ -67,51 +89,26 @@ a {
     .productSection {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      padding-top: 20px;
+      .sullocArchive {
+        width: 25%;
+        .sullocSectionImage {
+          img {
+            width: 100%;
+          }
+        }
+        .sullocSectionInfoPrice {
+          margin-top: 20px;
+        }
+      }
     }
   }
   .priductPagenation {
     display: flex;
     justify-content: center;
+    margin: 150px auto 50px;
     li {
       margin: 0 10px;
-    }
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .jejuSulloc {
-    .productBannerTitle {
-      left: 80%;
-      span {
-        font-size: 30px;
-      }
-    }
-    .productMain {
-      max-width: 1280px;
-      margin: 30px auto;
-      .productTea {
-        display: block;
-
-        p {
-          display: none;
-        }
-        .productSortBar {
-          justify-content: center;
-        }
-      }
-      .productAll {
-        display: grid;
-        justify-content: center;
-        p {
-          order: 2;
-          margin-top: 15px;
-        }
-        .productCategorySortBar {
-          order: 1;
-          margin-top: 15px;
-        }
-      }
     }
   }
 }
