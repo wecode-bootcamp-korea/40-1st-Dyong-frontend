@@ -20,6 +20,9 @@
       display: flex;
       padding: 0;
       justify-content: space-evenly;
+      &:hover {
+        cursor: pointer;
+      }
       .navWrapper {
         display: flex;
         justify-content: space-between;
