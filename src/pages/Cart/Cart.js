@@ -45,7 +45,7 @@ const Cart = () => {
 
   const deleteAll = () => {
     if (cartsList.length !== 0) {
-      if (window.confirm('삭제 하시겠습니까??')) {
+      if (window.confirm('삭제 하시겠습니까?')) {
         setCartsList([]);
       }
     }
@@ -56,6 +56,13 @@ const Cart = () => {
   };
 
   const totalAmount = cartsList.reduce(totalPrice, 0).toLocaleString();
+
+  const onclickHandler = () => {
+    if (true) {
+      alert('결제가 완료 되었습니다.');
+      window.location.href = 'http://localhost:3000/Nav';
+    }
+  };
 
   return (
     <main>
@@ -137,7 +144,11 @@ const Cart = () => {
             <span>{totalAmount}원</span>
           </div>
           <div className="order">
-            <button className="buyButton" type="submit">
+            <button
+              className="buyButton"
+              type="submit"
+              onClick={onclickHandler}
+            >
               {totalAmount}원 주문하기
             </button>
           </div>
