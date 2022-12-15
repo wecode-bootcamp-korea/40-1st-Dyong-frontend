@@ -23,7 +23,7 @@ function Detail(props) {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.235:8000/products/detail/1', {
+    fetch('http://10.58.52.235:8000/products/detail/2', {
       headers: {
         Accept: 'application / json',
         'Content-Type': 'application/json;charset=utf-8',
@@ -80,11 +80,7 @@ function Detail(props) {
           <div className="info_left">
             <div className="item_wrapper">
               <div className="item_img">
-                <img
-                  className="tea_img"
-                  src={product.content_image}
-                  alt="tea"
-                />
+                <img className="tea_img" src={product.main_image} alt="tea" />
               </div>
               <ul className="user_benefit">
                 <li>
