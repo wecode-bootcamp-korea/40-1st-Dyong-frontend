@@ -6,9 +6,6 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Product from './pages/Product/Product';
 import Footer from './components/Footer/Footer';
-import TeaSet from './pages/Product/jeein/TeaSet';
-import PremiumTea from './pages/Product/jeein/PremiumTea';
-import Malcha from './pages/Product/jeein/Malcha';
 import Cart from './pages/Cart/Cart';
 import ProductsDetail from './pages/Detail/ProductsDetail';
 
@@ -22,7 +19,7 @@ const Router = () => {
         <Route path="/main" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/detail" element={<Detail />} />
+        <Route path="/detail" element={<ProductsDetail />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
       <Footer />

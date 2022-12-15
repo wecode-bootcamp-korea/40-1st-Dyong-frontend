@@ -122,7 +122,7 @@ const Cart = () => {
                         {(cartList.price * cartList.quan).toLocaleString()}원
                       </strong>
                     </div>
-                    <button className="purchaseBtn">바로구매</button>
+                    {/* <button className="purchaseBtn">바로구매</button> */}
                   </li>
                 );
               })
