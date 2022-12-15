@@ -60,7 +60,7 @@ const Cart = () => {
   const onclickHandler = () => {
     if (true) {
       alert('결제가 완료 되었습니다.');
-      window.location.href = 'http://localhost:3000/Nav';
+      window.location.href = 'http://localhost:3000/Main';
     }
   };
 
