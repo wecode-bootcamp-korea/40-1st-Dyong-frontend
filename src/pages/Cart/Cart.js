@@ -3,23 +3,59 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartsList, setCartsList] = useState(CartList);
-  const [value, setValue] = useState(1);
-  const price = 350000;
+  const [checkItems, setCheckItems] = useState([]);
 
-  const inputValue = e => {
-    setValue(value);
+  const onClickDecreaseBtn = id => {
+    const nextCartList = cartsList.map(cart => {
+      if (cart.id === id) {
+        return { ...cart, quan: cart.quan - 1 <= 0 ? 1 : cart.quan - 1 };
+      }
+      return cart;
+    });
+    setCartsList(nextCartList);
   };
 
-  const addValue = () => {
-    setValue(value + 1);
+  const onClickIncreaseBtn = id => {
+    const nextCartList = cartsList.map(cart => {
+      if (cart.id === id) {
+        return { ...cart, quan: cart.quan + 1 };
+      }
+      return cart;
+    });
+    setCartsList(nextCartList);
   };
 
-  const minusValue = () => {
-    if (inputValue < 2) {
-      return;
+  const handleSingleCheck = (checked, id) => {
+    if (checked) {
+      setCheckItems(prev => [...prev, id]);
+    } else {
+      setCheckItems(checkItems.filter(el => el !== id));
     }
-    setValue(value - 1);
   };
+
+  const handleAllCheck = checked => {
+    if (checked) {
+      const idArray = [];
+      cartsList.forEach(el => idArray.push(el.id));
+      setCheckItems(idArray);
+    } else {
+      setCheckItems([]);
+    }
+  };
+
+  const deleteAll = () => {
+    if (cartsList.length !== 0) {
+      if (window.confirm('삭제 하시겠습니까??')) {
+        setCartsList([]);
+      }
+    }
+  };
+
+  const totalPrice = (a, id) => {
+    return (a = a + id.price * id.quan);
+  };
+
+  const totalAmount = CartList.reduce(totalPrice, 0).toLocaleString();
 
   return (
     <main>
@@ -30,12 +66,17 @@ const Cart = () => {
         <div className="leftBox">
           <div className="section1">
             <div className="left1">
-              <input className="checkBox" type="checkbox"></input>
+              <input
+                className="checkBox"
+                type="checkbox"
+                onChange={e => handleAllCheck(e.target.checked)}
+                checked={checkItems.length === cartsList.length ? true : false}
+              />
               <span className="checkBoxText">전체선택</span>
             </div>
             <div className="right1">
-              <button className="deleteText" type="button">
-                선택 삭제
+              <button className="deleteText" type="button" onClick={deleteAll}>
+                전체삭제
               </button>
             </div>
           </div>
@@ -50,34 +91,36 @@ const Cart = () => {
                     <input
                       className="checkBox"
                       type="checkbox"
-                      checked={cartList.isChecked}
+                      name={`select-${cartList.id}`}
+                      onChange={e =>
+                        handleSingleCheck(e.target.checked, cartList.id)
+                      }
+                      checked={checkItems.includes(cartList.id) ? true : false}
                     />
                     <div className="imgWrapper">
                       <img src={cartList.imageUrl} alt={cartList.name} />
                     </div>
-                    <div className="descWrapper">
-                      <strong>{cartList.name}</strong>
-                      <p>{cartList.content}</p>
-                    </div>
+
                     <div className="buttonWrapper">
                       <button
                         className="buttonSize"
-                        type="button"
-                        onClick={minusValue}
+                        onClick={() => onClickDecreaseBtn(cartList.id)}
                       >
                         -
                       </button>
                       <strong>{cartList.quan}</strong>
                       <button
                         className="buttonSize"
-                        type="button"
-                        onClick={addValue}
+                        onClick={() => onClickIncreaseBtn(cartList.id)}
                       >
                         +
                       </button>
                     </div>
+
                     <div className="price">
-                      <strong>{cartList.price.toLocaleString()}원</strong>
+                      <strong>
+                        {(cartList.price * cartList.quan).toLocaleString()}원
+                      </strong>
                     </div>
                     <button className="purchaseBtn">바로구매</button>
                   </li>
@@ -85,30 +128,13 @@ const Cart = () => {
               })
             )}
           </ul>
-
-          <div className="section3">
-            <button className="selectOrder" type="button">
-              선택상품 주문
-            </button>
-            <button className="allOrder" type="button">
-              전체상품 주문하기
-            </button>
-          </div>
-          <div className="section4">
-            <img src="https://www.osulloc.com/kr/ko/static_cdj/images/presentPage/IconPresentNote.png" />
-            <span>장바구니에 보관된 상품은 3개월 후에 삭제 됩니다.</span>
-          </div>
         </div>
 
         <div className="rightBox">
           <ul className="list">
             <li className="item">
               <span>상품 금액</span>
-              <span>+0원</span>
-            </li>
-            <li className="item">
-              <span>상품 할인</span>
-              <span>-0원</span>
+              <span>{totalAmount}원</span>
             </li>
             <li className="item">
               <span>배송비</span>
@@ -117,12 +143,11 @@ const Cart = () => {
           </ul>
           <div className="expectedPrice">
             <span>결제 예상 금액</span>
-            <span>0원</span>
+            <span>{totalAmount}원</span>
           </div>
-
           <div className="order">
             <button className="buyButton" type="submit">
-              0원 주문하기
+              {totalAmount}원 주문하기
             </button>
           </div>
         </div>
