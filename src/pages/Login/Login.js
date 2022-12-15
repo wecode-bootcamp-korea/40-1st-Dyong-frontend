@@ -21,7 +21,7 @@ function Login() {
 
   const goToMain = () => {
     if (isAllValid) {
-      fetch('http://10.58.52.70:8000/users/signin', {
+      fetch('http://10.58.52.235:8000/users/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -34,7 +34,11 @@ function Login() {
         //요청
         .then(response => response.json())
         // eslint-disable-next-line no-console
-        .then(data => console.log(data));
+        .then(response => {
+          if (response.ACCESS_TOKEN) {
+            localStorage.setItem('login-token', response.ACCESS_TOKEN);
+          }
+        });
       navigate('/main');
     } else {
       alert('양식을 다시 확인해주세요!');
@@ -48,8 +52,7 @@ function Login() {
   return (
     <section className="login">
       <form action="" method="post" className="loginForm">
-        <div className="font_top">아모레퍼시픽 뷰티포인트 통합회원</div>
-        <div className="font_bottom">아이디로 로그인해주세요.</div>
+        <div className="login_font">그린티 통합회원 ID로 로그인 해주세요.</div>
         <div className="login_idBox">
           <HintInput name="id" value={loginData.id} onChange={onChangeInput} />
         </div>

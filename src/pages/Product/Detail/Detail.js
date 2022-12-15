@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Detail.scss';
 
 function Detail(props) {
+  const [loading, setLoading] = useState(true);
+  const [product, setProduct] = useState({});
   const [value, setValue] = useState(1);
-  const price = 350000;
 
   const inputValue = e => {
     setValue(value);
@@ -20,9 +22,54 @@ function Detail(props) {
     setValue(value - 1);
   };
 
+  useEffect(() => {
+    fetch('http://10.58.52.235:8000/products/detail/1', {
+      headers: {
+        Accept: 'application / json',
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(response => response.json())
+      // eslint-disable-next-line no-console
+      .then(([product]) => {
+        setProduct(product);
+        setLoading(false);
+      });
+  }, []);
+
+  const navigate = useNavigate();
+
+  let token = localStorage.getItem('token') || '';
+
+  const goToCart = () => {
+    if (value > 0) {
+      fetch('http://10.58.52.235:8000/products/detail/1', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8',
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          id: product.id,
+          quantity: value,
+        }),
+      })
+        //요청
+        .then(response => response.json())
+        // eslint-disable-next-line no-console
+        .then(data => console.log(data));
+      navigate('/cart');
+    } else {
+      alert('최소 1개 이상은 선택하셔야 합니다.');
+    }
+  };
+
+  if (loading) return null;
+
   const goToBuy = () => {
     alert(
-      Intl.NumberFormat('ko-KR').format(price * value) + '원 구매하셨습니다.'
+      Intl.NumberFormat('ko-KR').format(product?.price * value) +
+        '원 구매하셨습니다.'
     );
   };
 
@@ -35,7 +82,7 @@ function Detail(props) {
               <div className="item_img">
                 <img
                   className="tea_img"
-                  src="https://www.osulloc.com/upload/kr/ko/adminImage/HC/LW/20201027143838409ZN.png?quality=80"
+                  src={product.content_image}
                   alt="tea"
                 />
               </div>
@@ -95,14 +142,13 @@ function Detail(props) {
           </div>
           <div className="info_right">
             <div className="sort">티제품 - 티 세트</div>
-            <p className="item_name">프리미엄 티 컬렉션</p>
+            <p className="item_name">{product.name}</p>
             <p className="item_info" id="info_area">
-              취향과 기분에 따라 다채로운 맛과 향을 즐기기 좋은, 알찬 구성의
-              베스트셀러 티 세트
+              {product.content}
             </p>
             <div className="price_info">
               <p className="price">
-                {Intl.NumberFormat('ko-KR').format(price)} 원
+                {Intl.NumberFormat('ko-KR').format(product.price)} 원
               </p>
             </div>
             <div className="buying_panel">
@@ -122,7 +168,7 @@ function Detail(props) {
             <div className="price_sum">
               <p className="sum">상품금액 합계</p>
               <p className="sum_value">
-                {Intl.NumberFormat('ko-KR').format(price * value)} 원
+                {Intl.NumberFormat('ko-KR').format(product.price * value)} 원
               </p>
             </div>
             <div className="button_wrapper">
@@ -130,7 +176,7 @@ function Detail(props) {
                 <button type="button" className="present">
                   선물하기
                 </button>
-                <button type="button" className="cart">
+                <button type="button" className="cart" onClick={goToCart}>
                   장바구니
                 </button>
                 <button type="button" className="buy" onClick={goToBuy}>
@@ -152,15 +198,11 @@ function Detail(props) {
           </div>
         </div>
         <div className="detail_img_wrapper">
+          <img className="detail_img1" src={product.sub_image} alt="상세1" />
           <img
             className="detail_img1"
-            src="https://www.osulloc.com/upload/kr/ko/item_view/1461/img_01.jpg"
-            alt="상세1"
-          />
-          <img
-            className="detail_img1"
-            src="https://www.osulloc.com/upload/kr/ko/item_view/1461/img_02.jpg"
-            alt="상세1"
+            src={product.content_image}
+            alt="상세2"
           />
         </div>
       </div>
