@@ -7,24 +7,28 @@ import './Signup.scss';
 export const RULES = {
   id: {
     pattern: value => value.length > 5,
-    message: '아이디 양식을 확인하세요. 아이디는 최소 5자 이상이여야 합니다.',
+    message:
+      '아이디 양식을 확인하세요.\n (아이디는 최소 5자 이상이여야 합니다.)',
   },
   name: {
     pattern: value => value.length > 2,
-    message: '이름 양식을 확인하세요. 법정 이름은 최소 2자 이상이여야 합니다.',
+    message:
+      '이름 양식을 확인하세요.\n (법정 이름은 최소 2자 이상이여야 합니다.)',
   },
   password: {
     pattern: value => value.includes('!', '@', '#', '$', '%', '^', '&'),
     message:
-      '비밀번호 양식을 확인하세요. 비밀번호는 !, @, #, $, %, ^, &중 하나를 반드시 포함해야 합니다.',
+      '비밀번호 양식을 확인하세요.\n (비밀번호는 !, @, #, $, %, ^, & 중 하나를 반드시 포함해야 합니다.)',
   },
   email: {
     pattern: value => value.includes('@') && value.includes('.'),
-    message: '이메일 양식을 확인하세요.',
+    message:
+      '이메일 양식을 확인하세요.\n (example@wecode.com과 같은 형식이어야 합니다.)',
   },
   phone: {
     pattern: value => value.includes('-'),
-    message: '핸드폰 양식(-을 포함한 정확한 번호)를 입력해주세요.',
+    message:
+      '핸드폰 양식을 확인하세요.\n (- 을 포함한 정확한 번호를 입력해주세요.)',
   },
 };
 
@@ -51,17 +55,17 @@ function Signup() {
 
   const goToLogin = () => {
     if (isAllValid) {
-      fetch('http://10.58.52.61:8000/signup', {
+      fetch('http://10.58.52.235:8000/users/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
         },
         body: JSON.stringify({
-          username: formData.id,
-          full_name: formData.name,
-          password: formData.password,
+          fullName: formData.name,
           email: formData.email,
-          phone_number: formData.phone,
+          username: formData.id,
+          password: formData.password,
+          phoneNumber: formData.phone,
         }),
       })
         //요청
@@ -77,19 +81,7 @@ function Signup() {
   return (
     <section className="signup">
       <form action="" method="post" className="signUpForm">
-        <div className="logo_box">
-          <img
-            className="logo"
-            src="https://www.osulloc.com/kr/ko/static_cdj/images/main/logo_black.png"
-            alt="로고"
-          />
-        </div>
-        <div className="fonta">뷰티포인트 회원가입</div>
-        <div className="fontb">
-          뷰티포인트 통합 아이디로 아모레퍼시픽 모든 브랜드의 온/오프 매장
-        </div>
-        <div className="fontc">서비스를 이용하실 수 있습니다.</div>
-        <div className="fontd">(만 14세 이상 부터 가입 가능합니다.)</div>
+        <div className="intro">그린티 회원가입</div>
         <div className="idBox">
           <HintInput name="id" value={formData.id} onChange={onChangeInput} />
         </div>
