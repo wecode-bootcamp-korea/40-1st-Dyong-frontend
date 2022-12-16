@@ -154,6 +154,19 @@
       object-fit: cover;
     }
   }
+  .descWrapper {
+    display: flex;
+    max-width: 240px;
+    flex-direction: column;
+    strong {
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+    p {
+      font-size: 13px;
+      color: #666;
+    }
+  }
   .buttonWrapper {
     display: flex;
     align-items: center;
