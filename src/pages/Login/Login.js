@@ -21,7 +21,7 @@ function Login() {
 
   const goToMain = () => {
     if (isAllValid) {
-      fetch('http://10.58.52.235:8000/users/signin', {
+      fetch('http://10.58.52.138:8000/users/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
@@ -39,7 +39,7 @@ function Login() {
             localStorage.setItem('login-token', response.ACCESS_TOKEN);
           }
         });
-      navigate('/main');
+      navigate('/products');
     } else {
       alert('양식을 다시 확인해주세요!');
     }

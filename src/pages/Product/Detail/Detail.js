@@ -23,7 +23,7 @@ function Detail(props) {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.235:8000/products/detail/2', {
+    fetch('http://10.58.52.138:8000/products/detail/4', {
       headers: {
         Accept: 'application / json',
         'Content-Type': 'application/json;charset=utf-8',
@@ -43,7 +43,7 @@ function Detail(props) {
 
   const goToCart = () => {
     if (value > 0) {
-      fetch('http://10.58.52.235:8000/products/detail/1', {
+      fetch('http://10.58.52.138:8000/products/detail/4', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',

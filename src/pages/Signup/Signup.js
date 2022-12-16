@@ -81,7 +81,7 @@ function Signup() {
   return (
     <section className="signup">
       <form action="" method="post" className="signUpForm">
-        <div className="intro">그린티 회원가입</div>
+        <div className="intro">오설티 회원가입</div>
         <div className="idBox">
           <HintInput name="id" value={formData.id} onChange={onChangeInput} />
         </div>
