@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import {
+  Link,
+  useSearchParams,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import './Product.scss';
 
 function Product() {
@@ -10,6 +15,7 @@ function Product() {
   const categoryTab = searchParams.get('type');
 
   const pagination = searchParams.get('page');
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!searchParams.has('page')) {
@@ -21,7 +27,7 @@ function Product() {
 
     setSearchParams(searchParams);
 
-    fetch(`http://10.58.52.235:8000/products${location.search}`, {
+    fetch(`http://10.58.52.138:8000/products${location.search}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
@@ -52,11 +58,19 @@ function Product() {
   };
 
   const ProductSectionCard = () => {
+    const goToDetail = id => {
+      navigate(`/detail/${id}`);
+    };
     return (
       <div className="productSection">
         {products?.map(({ id, name, price, main_image, sub_image }) => (
           <div key={id} className="sullocArchive">
-            <div className="sullocSectionImage">
+            <div
+              className="sullocSectionImage"
+              onClick={() => {
+                goToDetail(id);
+              }}
+            >
               <img src={main_image} />
             </div>
             <div className="sullocSectionInfo">
