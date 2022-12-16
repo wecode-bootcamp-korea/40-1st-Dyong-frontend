@@ -106,6 +106,10 @@ const Cart = () => {
                     <div className="imgWrapper">
                       <img src={cartList.imageUrl} alt={cartList.name} />
                     </div>
+                    <div className="descWrapper">
+                      <strong>{cartList.name}</strong>
+                      <p>{cartList.content}</p>
+                    </div>
                     <div className="buttonWrapper">
                       <button
                         className="buttonSize"
