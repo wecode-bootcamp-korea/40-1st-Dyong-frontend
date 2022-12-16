@@ -44,7 +44,7 @@ function Detail(props) {
 
   const goToCart = () => {
     if (value > 0) {
-      fetch('http://10.58.52.138:8000/products/detail/${product.id}', {
+      fetch(`http://10.58.52.138:8000/products/detail/${productId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
