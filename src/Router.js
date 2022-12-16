@@ -8,7 +8,6 @@ import Product from './pages/Product/Product';
 import Detail from './pages/Product/Detail/Detail';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
-import ProductsDetail from './pages/Detail/ProductsDetail';
 
 const Router = () => {
   return (
@@ -16,13 +15,10 @@ const Router = () => {
       <Nav />
       <Routes>
         <Route path="/products" element={<Product />} />
-        <Route path="/detail/:id" element={<ProductsDetail />} />
-        <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/detail" element={<ProductsDetail />} />
         <Route path="/Cart" element={<Cart />} />
-        <Route path="/details" element={<Detail />} />
+        <Route path="/detail/:productId" element={<Detail />} />
       </Routes>
       <Footer />
     </BrowserRouter>
