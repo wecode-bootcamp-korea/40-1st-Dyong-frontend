@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import {
+  Link,
+  useSearchParams,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import './Product.scss';
 
 function Product() {
@@ -9,22 +14,28 @@ function Product() {
   const sortTab = searchParams.get('sort');
   const categoryTab = searchParams.get('type');
 
-  const [pagination, setPagination] = useSearchParams();
-  const offset = pagination.get('offset');
-  const limit = pagination.get('limit');
+  const pagination = searchParams.get('page');
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (!searchParams.has('p')) {
-      searchParams.set('p', '0');
+    if (!searchParams.has('page')) {
+      searchParams.set('page', '0');
     }
     if (!searchParams.has('sort')) {
-      searchParams.set('sort', 'new_arrival');
+      searchParams.set('sort', 'new-arrival');
     }
-    if (!searchParams.has('type')) {
-      searchParams.set('type', 'page');
-    }
+
     setSearchParams(searchParams);
-  }, [location.search]);
+
+    fetch(`http://10.58.52.138:8000/products${location.search}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+    })
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, [location.search, searchParams, setSearchParams]);
 
   const setTypeParams = (type, typeItem) => {
     searchParams.set(type, typeItem);
@@ -37,32 +48,36 @@ function Product() {
   };
 
   const setClearParams = () => {
-    searchParams.set('type', 'page');
+    searchParams.delete('type');
     setSearchParams(searchParams);
   };
 
-  useEffect(() => {
-    fetch(`http://localhost:3000/data/sample.json${location.search}`)
-      .then(response => response.json())
-      .then(setProducts);
-  }, []);
-
-  const movePage = pageNumber => {
-    pagination.set('offset', (pageNumber - 1) * 10);
-    setPagination(pagination);
+  const movePageFirst = page => {
+    searchParams.set('page', page);
+    setSearchParams(searchParams);
   };
 
   const ProductSectionCard = () => {
+    const goToDetail = id => {
+      navigate(`/detail/${id}`);
+    };
     return (
       <div className="productSection">
-        {products.map(({ id, name, price, main_image, sub_image }) => (
+        {products?.map(({ id, name, price, main_image, sub_image }) => (
           <div key={id} className="sullocArchive">
-            <div className="sullocSectionImage">
+            <div
+              className="sullocSectionImage"
+              onClick={() => {
+                goToDetail(id);
+              }}
+            >
               <img src={main_image} />
             </div>
             <div className="sullocSectionInfo">
               <div className="sullocSectionInfoTitle">{name}</div>
-              <div className="sullocSectionInfoPrice">{price}</div>
+              <div className="sullocSectionInfoPrice">
+                {Intl.NumberFormat('ko-KR').format(price)} 원
+              </div>
             </div>
           </div>
         ))}
@@ -76,42 +91,39 @@ function Product() {
         <div className="productBannerImage">
           <img src="/images/osulloc_banner.jpg" alt="전제품 배너" />
         </div>
-        <div className="productBannerTitle">
-          <span className="bannerTitle">티제품</span>
-        </div>
       </div>
       <div className="productMain">
         <div className="productTea">
           <p>티 제품</p>
 
           <ul className="productSortBar">
-            <li onClick={() => setSortParams('sort', 'new_arrival')}>
-              <Link to="products?sort=new_arrival">
+            <li onClick={() => setSortParams('sort', 'new-arrival')}>
+              <Link to="products?sort=new-arrival">
                 <div
                   className={`teaSort ${
-                    sortTab === 'new_arrival' ? 'active' : ''
+                    sortTab === 'new-arrival' ? 'active' : ''
                   }`}
                 >
                   신상품순
                 </div>
               </Link>
             </li>
-            <li onClick={() => setSortParams('sort', 'high_price')}>
-              <Link to="products?sort=high_price">
+            <li onClick={() => setSortParams('sort', 'high-price')}>
+              <Link to="products?sort=high-price">
                 <div
                   className={`teaSort ${
-                    sortTab === 'high_price' ? 'active' : ''
+                    sortTab === 'high-price' ? 'active' : ''
                   }`}
                 >
                   높은 가격순
                 </div>
               </Link>
             </li>
-            <li onClick={() => setSortParams('sort', 'low_price')}>
-              <Link to="products?sort=low_price">
+            <li onClick={() => setSortParams('sort', 'low-price')}>
+              <Link to="products?sort=low-price">
                 <div
                   className={`teaSort ${
-                    sortTab === 'low_price' ? 'active' : ''
+                    sortTab === 'low-price' ? 'active' : ''
                   }`}
                 >
                   낮은 가격순
@@ -125,11 +137,9 @@ function Product() {
             총 <span>{products.length}</span>개의 상품이 있습니다.
           </p>
           <ul className="productCategorySortBar">
-            <li onClick={() => setClearParams('type', 'page')}>
-              <Link to="products?page">
-                <div
-                  className={`btn ${categoryTab === 'page' ? 'active' : ''}`}
-                >
+            <li onClick={() => setClearParams('type', '')}>
+              <Link to="products?all">
+                <div className={`btn ${categoryTab === null ? 'active' : ''}`}>
                   전체
                 </div>
               </Link>
@@ -175,11 +185,19 @@ function Product() {
         <ProductSectionCard />
       </div>
       <ul className="priductPagenation">
-        <li>
-          <button onClick={() => movePage(1)}>1</button>
+        <li onClick={() => movePageFirst(0)}>
+          <Link to="products?page=0">
+            <button className={`btn ${pagination === '0' ? 'active' : ''}`}>
+              1
+            </button>
+          </Link>
         </li>
-        <li>
-          <button onClick={() => movePage(2)}>2</button>
+        <li onClick={() => movePageFirst(1)}>
+          <Link to="products?page=1">
+            <button className={`btn ${pagination === '1' ? 'active' : ''}`}>
+              2
+            </button>
+          </Link>
         </li>
       </ul>
     </div>

@@ -39,7 +39,7 @@ function Login() {
             localStorage.setItem('login-token', response.ACCESS_TOKEN);
           }
         });
-      navigate('/main');
+      navigate('/products');
     } else {
       alert('양식을 다시 확인해주세요!');
     }
