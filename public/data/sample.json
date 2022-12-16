@@ -110,5 +110,33 @@
     "main_image": "/images/osulloc_main(3).jpg",
     "sub_image": "/images/osulloc_main(2).jpg",
     "price": 9100
+  },
+  {
+    "id": "FPO",
+    "name": "그린티 랑드샤16",
+    "main_image": "/images/osulloc_main(3).jpg",
+    "sub_image": "/images/osulloc_main(2).jpg",
+    "price": 9100
+  },
+  {
+    "id": "FPO",
+    "name": "그린티 랑드샤16",
+    "main_image": "/images/osulloc_main(3).jpg",
+    "sub_image": "/images/osulloc_main(2).jpg",
+    "price": 9100
+  },
+  {
+    "id": "FPO",
+    "name": "그린티 랑드샤16",
+    "main_image": "/images/osulloc_main(3).jpg",
+    "sub_image": "/images/osulloc_main(2).jpg",
+    "price": 9100
+  },
+  {
+    "id": "FPO",
+    "name": "그린티 랑드샤16",
+    "main_image": "/images/osulloc_main(3).jpg",
+    "sub_image": "/images/osulloc_main(2).jpg",
+    "price": 9100
   }
 ]
