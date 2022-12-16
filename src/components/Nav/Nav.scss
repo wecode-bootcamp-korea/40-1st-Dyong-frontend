@@ -28,9 +28,11 @@
         justify-content: space-between;
         .navItem {
           position: relative;
-          display: flex;
+          display: absolute;
+          width: 100%;
           font-size: 18px;
           padding: 10px 0;
+          margin-bottom: 30px;
           &::after {
             display: none;
             content: '';
