@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './Detail.scss';
 
 function Detail(props) {
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState({});
   const [value, setValue] = useState(1);
+  const { productId } = useParams();
 
   const inputValue = e => {
     setValue(value);
@@ -23,7 +24,7 @@ function Detail(props) {
   };
 
   useEffect(() => {
-    fetch('http://10.58.52.138:8000/products/detail/4', {
+    fetch(`http://10.58.52.138:8000/products/detail/${productId}`, {
       headers: {
         Accept: 'application / json',
         'Content-Type': 'application/json;charset=utf-8',
@@ -43,7 +44,7 @@ function Detail(props) {
 
   const goToCart = () => {
     if (value > 0) {
-      fetch('http://10.58.52.138:8000/products/detail/4', {
+      fetch(`http://10.58.52.138:8000/products/detail/${productId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8',
