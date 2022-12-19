@@ -70,7 +70,7 @@
 #### GNB
 
 - map 메소드를 사용하여 배열과 객체에 접근, 카테고리가 나타나도록 구현
-- hover에 따른 drawer 창 구현 ㅓ
+- hover에 따른 drawer 창 구현
 
 #### Footer
 
